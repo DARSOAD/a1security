@@ -47,7 +47,7 @@ get_header(); ?>
 				<h3 id="titulobloque3" class="letra27pt-pc letra5-5pt-mv tipografiaPuno negrillaTres centrado"> READY TO BOOST YOUR SECURITY? </h3>	
 				<p id="subtitulobloque3" class="letra18pt-pc letra3pt-mv tipografiaPdos centrado"> Let's Get Started! </p>
 				<!-------------------FORMULARIO PASOS---------------->
-				<form id="theForm" class="simform" action="<?php echo get_site_url(); ?>/gracias" method="post" accept-charset="UTF-8" autocomplete="off">
+				<form id="theForm" class="simform" action="<?php echo get_site_url(); ?>/thanks" method="post" accept-charset="UTF-8" autocomplete="off">
 					<input name="tipo" type="hidden"  value="registrarse">
 					<div class="simform-inner">
 						<ol class="questions">

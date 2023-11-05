@@ -14,9 +14,9 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Carrito | Concurvas</title>
+	<title>A1</title>
 	<!-------------------ICONS---------------->
-	<link href="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/concurvas.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/a1security.ico" rel="shortcut icon" type="image/x-icon">
 	<!-------------------ICONS---------------->
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" async>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/csscool/main.css"> <!-- CSS reset -->

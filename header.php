@@ -146,9 +146,9 @@
 			@media only screen and (max-width:767px) {#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/Portada_inicio-mv.jpg");}}
 		/*----------------------PORTADA------------------------------*/
 		/*----------------------BANNER BLOQUE 3------------------------------*/
-			@media only screen and  (min-width:992px){#bloque3{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_pc.webp");}}
-			@media only screen and (max-width:991px) and  (min-width:768px){#bloque3{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_tb.webp");}}
-			@media only screen and (max-width:767px) {#bloque3{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_mv.webp");}}
+			@media only screen and  (min-width:992px){#bloque3{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_pc.jpg");}}
+			@media only screen and (max-width:991px) and  (min-width:768px){#bloque3{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_tb.jpg");}}
+			@media only screen and (max-width:767px) {#bloque3{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_mv.jpg");}}
 		/*----------------------BANNER BLOQUE 3------------------------------*/
 			<?php } ?>
 			<?php if( is_page() || is_single()){ ?>

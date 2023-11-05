@@ -44,38 +44,35 @@ get_header(); ?>
 			</div>		
 
 			<div id="bloque3" class="banner-full-screen">
-				<h3 id="titulobloque3" class="letra27pt-pc letra5-5pt-mv tipografiaPuno negrillaTres centrado"> ¿QUIERES COMPRAR CHAQUETAS AL POR MAYOR? <br> SOMOS FABRICANTES COLOMBIANOS </h3>	
-				<p id="subtitulobloque3" class="letra18pt-pc letra3pt-mv tipografiaPdos centrado">Dejanos tus datos y te enviaremos toda la información para que empieces a vender</p>
+				<h3 id="titulobloque3" class="letra27pt-pc letra5-5pt-mv tipografiaPuno negrillaTres centrado"> READY TO BOOST YOUR SECURITY? </h3>	
+				<p id="subtitulobloque3" class="letra18pt-pc letra3pt-mv tipografiaPdos centrado"> Let's Get Started! </p>
 				<!-------------------FORMULARIO PASOS---------------->
 				<form id="theForm" class="simform" action="<?php echo get_site_url(); ?>/gracias" method="post" accept-charset="UTF-8" autocomplete="off">
 					<input name="tipo" type="hidden"  value="registrarse">
 					<div class="simform-inner">
 						<ol class="questions">
 							<li class="current">
-								<span><label for="q1">Nombre de tu Empresa </label></span>
+								<span><label for="q1">Company name </label></span>
 								<input id="q1" name="empresa" type="text">
 							</li>
 							<li>
-								<span><label for="q2"> ¿Cuál es tu teléfono? </label></span>
+								<span><label for="q2"> Phone number</label></span>
 								<input id="q2" name="telefono" type="text">
 							</li>
 							<li>
-								<span><label for="q3"> Déjanos tu correo </label></span>
+								<span><label for="q3"> Email </label></span>
 								<input id="q3" name="correo" type="text">
 							</li>
 							<li>
-								<span><label for="q4"> Tu nombre </label></span>
+								<span><label for="q4"> Name </label></span>
 								<input id="q4" name="nombre" type="text">
-							<li>
-								<span><label for="q5"> ¿En dónde estás ubicado?</label></span>
-								<input id="q5" name="ciudad" type="text">
 							</li>
 							<li>
-								<span><label for="q6"> Comentarios</label></span>
+								<span><label for="q6"> Additional information</label></span>
 								<input id="q6" name="comentarios" type="text">
 							</li>
 						</ol>
-						<button class="submit" type="submit"> Enviar </button>					
+						<button class="submit" type="submit"> Submit </button>					
 						<div class="controls">
 							<button class="next"></button>
 							<div class="progress"></div>
@@ -90,5 +87,5 @@ get_header(); ?>
 				</form>
 				<!-------------------FORMULARIO PASOS---------------->		
 			</div>
-			
+				
 	<?php get_footer(); ?>

@@ -9,7 +9,7 @@
 							<a href="<?php echo get_site_url(); ?>" class="menu__link letra17pt-pc">HOME&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>
 						<li class="links  sub-menu-parent active " data-content="about us">
-							<a href="<?php echo get_site_url(); ?>/productos" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
+							<a href="tel:+19178283434" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
 						</li>
 						<!--<li class="links  sub-menu-parent active " data-content="chaquetas">
 							<a href="<?php echo get_site_url(); ?>/catalogo/?vara=chaquetas" class="menu__link letra17pt-pc">CHAQUETAS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
@@ -36,7 +36,7 @@
 						</div>
 						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/productos"> Call (917) 828-3434</a></h4>
+								<h4 class="panel-title"><a href="tel:+19178283434"> Call (917) 828-3434</a></h4>
 							</div>
 						</div>
 						<!--<div class="panel panel-default"> 

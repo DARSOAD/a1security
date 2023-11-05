@@ -30,100 +30,67 @@
 <div id="bloque5">
 				<footer>
 					<div id="footerproductos">
-						<h3 class="footerh3"> PRODUCTOS </h3>
+						<h3 class="footerh3"> SERVICES </h3>
 						<ul class="footerul">
-<?php
 
-	$cats = get_categories( array(
-	'hide_empty' => 0,
-    'orderby' => 'name',
-    'taxonomy'   => 'product_cat'
-)  );
-  
-if ( ! empty( $cats ) ) {
-    // print_r($cats);
-     foreach ( $cats as $term ) {
-     // If parent cat ID = 116 echo subcat name...
-     	if( (!$term->parent && $term->slug != 'sin-categorizar') || $term->parent == 16) { 
-     		?> <li><a href="<?php echo get_site_url(); ?>/catalogo/?vara=<?php echo $term->category_nicename;?>/"> <?php echo $term->name; ?> </a></li> <?php
-    	}		
-	 }
-}
-?>
-
+							<?php
+									query_posts('post_type=post');
+									while ( have_posts() ) : the_post(); ?>
+									<li>
+										<a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a>
+									</li>
+									
+							<?php endwhile; ?>
 							
 						</ul>	
 					</div>
-					<div id="footerproductosalpormayor">
-						<h3 class="footerh3"> PRODUCTOS AL POR MAYOR </h3>
-						<ul class="footerul" id="ul1">
-							<?php
-
-	$cats = get_categories( array(
-	'hide_empty' => 0,
-    'orderby' => 'name',
-    'taxonomy'   => 'product_cat'
-)  );
-  
-if ( ! empty( $cats ) ) {
-     //print_r($cats);
-     foreach ( $cats as $term ) {
-     // If parent cat ID = 116 echo subcat name...
-     	if( (!$term->parent && $term->slug != 'sin-categorizar') || $term->parent == 16) { 
-     		?> <li><a href="<?php echo get_site_url(); ?>/catalogo/?vara=<?php echo $term->category_nicename;?>/"> <?php echo $term->name; ?> al por mayor </a></li> <?php
-    	}		
-	 }
-}
-?>
-						</ul>
-						<h4 class="footerh3" id="pstion1"> HORARIOS DE ATENCIÓN</h4>
-						<ul class="footerul" id="pstion2">
-							<li> <p>Lunes a Sábado  9:00 a.m - 7:00 p.m</p> </li>							
-							<li> <p>Domingo         10:00 a.m - 4:00 p.m</p> </li>
-						</ul>
-					</div>
 					<div id="googlemaps">
-						<div id="map"> </div>
-						<h3 class="footerh3tienda"> ENCUENTRA EL ALMACEN <span> &#10140; </span> </h3>
+						<a href="<?php echo get_site_url(); ?>/" class=" ">
+							<figure class="logo_footer">
+								<img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO.png" alt="Logo A1 security">
+							</figure>
+						</a>
+							<!-- <div id="map"> </div>
+							<h3 class="footerh3tienda"> ENCUENTRA EL ALMACEN <span> &#10140; </span> </h3> -->
 					</div>
 					<div id="footercontacto">
-						<h3 class="footerh3"> CONTÁCTENOS </h3>
+						<h3 class="footerh3"> CONTACT US </h3>
 						<ul class="footerul footerul2">
-							<li><a href=""> concurvas.almacen@gmail.com </a></li>
-							<li class="celular"> Cll 10 No 20-35, San Andresito San José </li>
-							<li class="celular"> Local 110 Bogotá Colombia </li>
-							<li class="pc tablet"><a href="https://api.whatsapp.com/send?phone=573053449733" target="_blank"> <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/whatsapp-logo.png" alt="WhatsApp" style="width: 2.2% !important; height: auto !important;"> 3053449733 </a></li>							
+							<li><a href=""> nick@a1securitynyc.com </a></li>
+							<!-- <li class="celular"> Cll 10 No 20-35, San Andresito San José </li>
+							<li class="celular"> Local 110 Bogotá Colombia </li> -->
+							<li class="pc tablet"><a href="tel:+19178283434" target="_blank"> <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/whatsapp-logo.png" alt="WhatsApp" style="width: 2.2% !important; height: auto !important;"> (917) 828-3434 </a></li>							
 						</ul>
 					</div>
 					<div id="footerdatoscontacto">
 						<ul class="footerul footerul2">							
-							<li class="pc"> Cll 10 No 20-35, San Andresito San José </li>		
-							<li class="pc"> Local 110 Bogotá Colombia </li>
-							<li class="tablet"> Cll 10 No 20-35, San Andresito San José  </li>
-							<li class="tablet"> Local 110 Bogotá Colombia </li>
-							<li class="celular"><a href="https://api.whatsapp.com/send?phone=573053449733" target="_blank"> <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/whatsapp-logo.png" alt="WhatsApp" style="width: 4% !important; height: auto !important;"> 3053449733 </a></li>		
+							<!-- <li class="pc"> nick@a1securitynyc.com </li>		 -->
+							<!-- <li class="pc"> Local 110 Bogotá Colombia </li> -->
+							<!-- <li class="tablet"> nick@a1securitynyc.com  </li> -->
+							<!-- <li class="tablet"> Local 110 Bogotá Colombia </li> -->
+							<li class="celular"><a href="tel:+19178283434" target="_blank"> <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/whatsapp-logo.png" alt="WhatsApp" style="width: 4% !important; height: auto !important;"> (917) 828-3434 </a></li>		
 						</ul>
 					</div>	
-					<div id="movilredes">
+					<!-- <div id="movilredes">
 						<figure class="celular redesmovil">
-							<a href="https://www.facebook.com/concurvas.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/facebook.png" alt="facebook"></a>							
+							<a href="https://www.facebook.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/facebook.png" alt="facebook"></a>							
 						</figure>
 						<figure class="celular redesmovil">
-							<a href="https://www.instagram.com/concurvas.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/instagram.png" alt="instagram"></a>				
+							<a href="https://www.instagram.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/instagram.png" alt="instagram"></a>				
 						</figure>
 					</div>						
 					<div id="redessociales">
 						<figure class="pc">
-							<a href="https://www.facebook.com/concurvas.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/facebook.png" alt="facebook"></a>							
+							<a href="https://www.facebook.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/facebook.png" alt="facebook"></a>							
 						</figure>
 						<figure class="pc">
-							<a href="https://www.instagram.com/concurvas.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/instagram.png" alt="instagram"></a>				
+							<a href="https://www.instagram.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/instagram.png" alt="instagram"></a>				
 						</figure>					
-					</div>
+					</div> -->
 					<div id="sombra" ></div>
 					<div id="terminosycondiciones">
-						<h4> Copyright &#169; Concurvas &reg; Desarrollado por Mainteam Agencia. </h4>
-						<a href="http://www.concurvas.com/terminos-y-condiciones/"><h5> Términos y condiciones </h5></a> 
+						<h4> Copyright &#169; A1 Security Professionals</h4>
+						<!-- <a href="<?php echo get_template_directory_uri(); ?>/terminos-y-condiciones/"><h5> Términos y condiciones </h5></a>  -->
 					</div>
 					
 					
@@ -330,7 +297,7 @@ if ( ! empty( $cats ) ) {
 					  animation: google.maps.Animation.BOUNCE
 					});  	
 					var infowindow = new google.maps.InfoWindow({
-					  content: "Concurvas Local 110"
+					  content: "A1 Security "
 					});
 					infowindow.open(map,marker);
 					 google.maps.event.addListener(marker,'click',function(){

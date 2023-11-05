@@ -59,7 +59,7 @@
 							<li><a href=""> nick@a1securitynyc.com </a></li>
 							<!-- <li class="celular"> Cll 10 No 20-35, San Andresito San José </li>
 							<li class="celular"> Local 110 Bogotá Colombia </li> -->
-							<li class="pc tablet"><a href="tel:+19178283434" target="_blank"> <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/whatsapp-logo.png" alt="WhatsApp" style="width: 2.2% !important; height: auto !important;"> (917) 828-3434 </a></li>							
+							<li class="pc tablet"><a href="tel:+19178283434" target="_blank"> (917) 828-3434 </a></li>							
 						</ul>
 					</div>
 					<div id="footerdatoscontacto">
@@ -68,7 +68,7 @@
 							<!-- <li class="pc"> Local 110 Bogotá Colombia </li> -->
 							<!-- <li class="tablet"> nick@a1securitynyc.com  </li> -->
 							<!-- <li class="tablet"> Local 110 Bogotá Colombia </li> -->
-							<li class="celular"><a href="tel:+19178283434" target="_blank"> <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/whatsapp-logo.png" alt="WhatsApp" style="width: 4% !important; height: auto !important;"> (917) 828-3434 </a></li>		
+							<li class="celular"><a href="tel:+19178283434" target="_blank"> (917) 828-3434 </a></li>		
 						</ul>
 					</div>	
 					<!-- <div id="movilredes">

@@ -6,11 +6,11 @@ $tipo=$_POST['tipo'];
 		$correo=$_POST['correo'];
 		$nombre=$_POST['nombre'];
 		$comentarios=$_POST['comentarios'];
-        $sender = 'diego@a1securitynyc.com';
+        $sender = 'nick@a1securitynyc.com';
         echo $correo;
         //$recipient = '$correo';
-        $recipient = 'mainteamagency@gmail.com';
-        $subject = "Solicitud de información";
+        $recipient = 'diego@a1securitynyc.com';
+        $subject = "Information needed";
         //$message = "Este es el correo nuevo";
         $message= '
 		<html>
@@ -53,7 +53,7 @@ $tipo=$_POST['tipo'];
 		</html>';
         $headers = "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=utf-8\r\n";
-		$headers .= "From: A1 Security WEB <$sender>\r\n";
+		$headers .= "From: A1 Security Professionals <$sender>\r\n";
 		$headers .= "Reply-To: $sender\r\n";
 		$headers .= "Return-path: $sender\r\n";
         mail('nick@a1securitynyc.com', $subject, $message, $headers);

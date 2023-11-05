@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" class="js csstransitions">
+<html lang="en-us" class="js csstransitions">
 	<head >
 
 

@@ -5,10 +5,10 @@
 				<nav class="main-nav menu">
 					<ul id="menupc">						
 						<li class="links  sub-menu-parent active " data-content="chaquetas">
-							<a href="<?php echo get_site_url(); ?>" class="menu__link letra17pt-pc">INICIO&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
+							<a href="<?php echo get_site_url(); ?>" class="menu__link letra17pt-pc">HOME&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>					
 						<li class="links  sub-menu-parent active " data-content="chaquetas">
-							<a href="<?php echo get_site_url(); ?>/productos" class="menu__link letra17pt-pc">CHAQUETAS AL POR MAYOR&nbsp;&nbsp;&nbsp;</a>
+							<a href="tel:+19178283434" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
 						</li>
 						<!--<li class="links  sub-menu-parent active " data-content="chaquetas">
 							<a href="<?php echo get_site_url(); ?>/catalogo/?vara=chaquetas" class="menu__link letra17pt-pc">CHAQUETAS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>

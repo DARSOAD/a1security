@@ -1,16 +1,7 @@
 <!doctype html>
-<html lang="es" class="no-js">
+<html lang="en-us" class="no-js">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117856180-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-117856180-3');
-  gtag('config', 'AW-802333734');
-</script>
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

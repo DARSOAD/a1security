@@ -9,8 +9,8 @@
  */
 get_header(); ?>
 				<h2>YOUR TRUSTED</h2>
-				<h1 id='segundoReglonTitulo'>SECURITY PARTNER</h1>
-				<h2 id='tercerReglonTitulo'>IN NEW YORK CITY</h2>
+				<h1 id='segundoReglonTitulo'>PERSONALIZED SECURITY</h1>
+				<h2 id='tercerReglonTitulo'>GUARD PROVIDER</h2>
 				
 				<!-- <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/neon_like.webp" alt="Neon Like" id="NeonLike" > -->
 			</div>	

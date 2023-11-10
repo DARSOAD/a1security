@@ -11,10 +11,10 @@
 						<li class="links  sub-menu-parent active " data-content="about us">
 							<a href="tel:+19178283434" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
 						</li>
-						<!--<li class="links  sub-menu-parent active " data-content="chaquetas">
-							<a href="<?php echo get_site_url(); ?>/catalogo/?vara=chaquetas" class="menu__link letra17pt-pc">CHAQUETAS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
+						<li class="links  sub-menu-parent active " data-content="aboutus">
+							<a href="<?php echo get_site_url(); ?>/?page_id=71" class="menu__link letra17pt-pc">ABOUT US &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>
-						<li class="links  sub-menu-parent " data-content="chalecos">
+						<!--<li class="links  sub-menu-parent " data-content="chalecos">
 							<a href="<?php echo get_site_url(); ?>/catalogo/?vara=chalecos" class="menu__link letra17pt-pc">CHALECOS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; </a>
 						</li>
 						<li class="links  sub-menu-parent " data-content="buzos">
@@ -39,12 +39,12 @@
 								<h4 class="panel-title"><a href="tel:+19178283434"> Call (917) 828-3434</a></h4>
 							</div>
 						</div>
-						<!--<div class="panel panel-default"> 
+						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/catalogo/?vara=chaquetas"> Chaquetas</a></h4>
+								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/?page_id=71"> About us</a></h4>
 							</div>
 						</div>
-						<div class="panel panel-default"> 
+						<!--<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
 								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/catalogo/?vara=chalecos"> Chalecos</a></h4>
 							</div>

@@ -10,10 +10,10 @@
 						<li class="links  sub-menu-parent active " data-content="chaquetas">
 							<a href="tel:+19178283434" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
 						</li>
-						<!--<li class="links  sub-menu-parent active " data-content="chaquetas">
-							<a href="<?php echo get_site_url(); ?>/catalogo/?vara=chaquetas" class="menu__link letra17pt-pc">CHAQUETAS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
+						<li class="links  sub-menu-parent active " data-content="aboutus">
+							<a href="<?php echo get_site_url(); ?>/?page_id=71" class="menu__link letra17pt-pc">ABOUT US &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>
-						<li class="links  sub-menu-parent " data-content="chalecos">
+						<!--<li class="links  sub-menu-parent " data-content="chalecos">
 							<a href="<?php echo get_site_url(); ?>/catalogo/?vara=chalecos" class="menu__link letra17pt-pc">CHALECOS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; </a>
 						</li>
 						<li class="links  sub-menu-parent " data-content="buzos">

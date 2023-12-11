@@ -90,7 +90,7 @@
 					<div id="sombra" ></div>
 					<div id="terminosycondiciones">
 						<h4> Copyright &#169; A1 Security Professionals</h4>
-						<a href="<?php echo get_template_directory_uri(); ?>/carlos-sitio/"><h5> Honoring Carlos Stio: Continuing a Legacy of Security Excellence </h5></a> 
+						<a href="https://a1securitynyc.com/?page_id=73"><h5> Honoring Carlos Stio: Continuing a Legacy of Security Excellence </h5></a> 
 					</div>
 					
 					

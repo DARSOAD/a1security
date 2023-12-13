@@ -40,7 +40,7 @@ get_header(); ?>
 							<div class="info">	
 								<h3 class="title letra36pt-pc letra5pt-mv"><?php the_title();?></h3>
 								<p class="description letra25pt-pc letra4pt-mv"><?php echo get_excerpt(400);?></p>
-								<a  href="<?php the_permalink() ?>"> <button class=''> Info</button> </a>
+								<a  href="<?php the_permalink() ?>"> <button class='botones_tres'>More Info</button> </a>
 							</div>
 						</div>
 					</div>

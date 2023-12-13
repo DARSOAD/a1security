@@ -327,5 +327,6 @@
     font-family: inherit !important;
     font-weight: 500!important;
     color: #062132 !important;
-    background: rgb(255, 219, 88) !important;
+    border: solid 1px rgb(255, 219, 88) !important;
+    margin: 2% 0;
 }

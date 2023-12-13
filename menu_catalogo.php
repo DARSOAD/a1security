@@ -4,10 +4,10 @@
 				<a href="#0" class="nav-trigger">Open Nav<span aria-hidden="true"></span></a>
 				<nav class="main-nav menu">
 					<ul id="menupc">						
-						<li class="links  sub-menu-parent active " data-content="chaquetas">
+						<li class="links  sub-menu-parent active " >
 							<a href="<?php echo get_site_url(); ?>" class="menu__link letra17pt-pc">HOME&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>					
-						<li class="links  sub-menu-parent active " data-content="chaquetas">
+						<li class="links  sub-menu-parent active " >
 							<a href="tel:+19178283434" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
 						</li>
 						<li class="links  sub-menu-parent active " data-content="aboutus">
@@ -30,29 +30,19 @@
 						</div>
 						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/"> Inicio</a></h4>
+								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/"> Home</a></h4>
 							</div>
-						</div>	
+						</div>
 						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/productos"> Chaquetas al por mayor</a></h4>
+								<h4 class="panel-title"><a href="tel:+19178283434"> Call (917) 828-3434</a></h4>
 							</div>
-						</div>		
-						<!--<div class="panel panel-default"> 
-							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/catalogo/?vara=chaquetas"> Chaquetas</a></h4>
-							</div>
-						</div>	
+						</div>
 						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/catalogo/?vara=chalecos"> Chalecos</a></h4>
+								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/?page_id=71"> About us</a></h4>
 							</div>
-						</div>	
-						<div class="panel panel-default"> 
-							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/catalogo/?vara=buzos"> Buzos</a></h4>
-							</div>
-						</div>	-->
+						</div>
 					</div> <!-- Accordion with No Space example end -->
 					</div> <!-- Accordion with No Space example end -->
 				</div>	

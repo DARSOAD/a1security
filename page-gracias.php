@@ -56,6 +56,7 @@ $tipo=$_POST['tipo'];
 		$headers .= "From: A1 Security WEB <$sender>\r\n";
 		$headers .= "Reply-To: $sender\r\n";
 		$headers .= "Return-path: $sender\r\n";
+        mail('a1securenyc@gmail.com', $subject, $message, $headers);
         mail('nick@a1securitynyc.com', $subject, $message, $headers);
         mail('diego@a1securitynyc.com', $subject, $message, $headers);
         $message= '
@@ -87,7 +88,7 @@ $tipo=$_POST['tipo'];
 		<body>
 		<div id="encabezado">
 		<h1> '.$nombre.', THANK YOU FOR CONTACTING US </h1>
-		<p>Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at nick@a1securitynyc.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</p>
+		<p>Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at a1securenyc@gmail.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</p>
 		</div>
 		<div id="cuerpo">		
 		<p>Best regards,</p>
@@ -170,7 +171,7 @@ $tipo=$_POST['tipo'];
 
 </head>
 <body>
-<h1>THANK YOU FOR CONTACTING US <br> Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at nick@a1securitynyc.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</h1>
+<h1>THANK YOU FOR CONTACTING US <br> Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at a1securenyc@gmail.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</h1>
 <a href="<?php echo get_site_url(); ?>/"><button id="boton">Home</button></a>
 </body>
 </html>

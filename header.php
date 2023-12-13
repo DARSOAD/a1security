@@ -66,11 +66,13 @@
 		</style>
 		<!-------------------RESET---------------->	
 		<link href="<?php echo get_template_directory_uri(); ?>/css/footer.css" rel="stylesheet" async>
+		
 		<?php } ?>
 
         
 		<?php if(is_home()){ ?>
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css" async>		
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/letra.css" async>		
 		<?php } ?>
 		<?php if(is_single()){ ?>		
 		

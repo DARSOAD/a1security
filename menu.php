@@ -2,7 +2,7 @@
 			<div id="bloque1" class="cd-header cd-morph-dropdown">
 				<a href="<?php echo get_site_url(); ?>/" class="pc"><figure class="logo_pc"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO.png" alt="Logo A1 security"></figure></a>
 				<a href="<?php echo get_site_url(); ?>/" class="celular tablet"><figure class="logo_pc"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO.png" alt="Logo A1 security"></figure></a>
-				<a href="#0" class="nav-trigger">Open Nav<span aria-hidden="true"></span></a>
+				<a href="#0" class="nav-trigger">Open Nav<span aria-hidden="false"></span></a>
 				<nav class="main-nav menu">
 					<ul id="menupc">						
 						<li class="links  sub-menu-parent active " data-content="home">

@@ -16,30 +16,35 @@ get_header(); ?>
 			</div>	
 
 			<div id="bloque4">
+			
 				<!--<a href=""> 
 					<button class="botonescarrusel" id="botoncomida" type="button"> COMIDA </button>
 					<button class="botonescarrusel" id="botonmedicamentos" type="button"> MEDICAMENTOS </button>
 					<button class="botonescarrusel" id="botonaccesorios" type="button"> ACCESORIOS </button>
 				</a>-->
-					<div class="conocenos"> <p>Services</p> <span> &#10140; </span></div>
-				<!-------------------CARRUSEL---------------->
-				<div class="owl-carousel">
+				<h1 class="tituloServicio letra43pt-pc letra5pt-mv">Our security services</h1>
+					<!-- <div class="conocenos"> <p>Services</p> <span> &#10140; </span></div> -->
+				
 					<?php
 					query_posts('post_type=post');
 					while ( have_posts() ) : the_post(); ?>
-					<div class="item">	
-						<figure class="producto">
-							<a href="<?php the_permalink() ?>"><?php the_post_thumbnail();?></a>
-							<a href="<?php the_permalink() ?>"><figcaption> <p class="letra30pt-pc letra4-5pt-mv"><?php the_title();?></strong> </figcaption></a>
-							<a href="<?php the_permalink() ?>" class="pc"><h2 class="letra18pt-pc"> <?php echo get_excerpt(200);?> </h2></a>
-							<a href="<?php the_permalink() ?>" class="tablet celular"><h2 class="letra3pt-mv"> <?php echo get_excerpt(40);?> </h2></a>
-						</figure>	
-						<figure class="iconolike">
-							<img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/like.png" alt="like">
-						</figure>
+					<div class="service">
+						<div class="service-header">
+							<h3 class="title letra36pt-pc letra5pt-mv"><?php the_title();?></h3>
+							<button class="toggle-btn">+</button>
+						</div>
+						<div class="service-details">
+							<div class="thumbnaill pc tablet">
+								<?php the_post_thumbnail();?>
+							</div>
+							<div class="info">	
+								<h3 class="title letra36pt-pc letra5pt-mv"><?php the_title();?></h3>
+								<p class="description letra25pt-pc letra4pt-mv"><?php echo get_excerpt(400);?></p>
+								<a  href="<?php the_permalink() ?>"> <button class=''> Info</button> </a>
+							</div>
+						</div>
 					</div>
 					<?php endwhile; ?>		
-				</div>
 				<!-------------------CARRUSEL---------------->
 			</div>		
 

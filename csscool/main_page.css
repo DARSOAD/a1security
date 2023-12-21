@@ -3799,3 +3799,85 @@ Main Components
 }
 
 /*STYLE_CARRO*/
+/*STYLE CLIENTES*/
+
+/* Estilos generales */
+
+/* Estilos para tarjetas individuales */
+.tarjetaClientes {
+  width: 30%; /* Ocupa inicialmente el 40% del ancho */
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.5s ease; /* Transición para el cambio de color del borde */
+}
+
+.tarjetaClientes:hover {
+  border-color: gold; /* Cambio de color del borde al pasar el mouse */
+}
+
+.tarjetaClientes .contenidoCliente {
+  padding: 20px;
+  text-align: center;
+}
+
+.tarjetaClientes h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.tarjetaClientes p {
+  margin: 10px 0 0;
+}
+
+.tarjetaClientes .imagenCliente {
+  position: absolute;
+  width: 5%; /* 10% del ancho total del cuadro */
+  height: auto; /* Altura igual al ancho */
+  overflow: hidden; /* Asegura que la imagen no se desborde */
+  margin: -2% 2%;
+  border-radius: 20%;
+  border: 7px solid #fff;
+  transition: transform 0.5s ease; /* Transición para la rotación de la imagen */
+}
+
+.tarjetaClientes:hover .imagenCliente {
+  transform: rotateY(180deg); /* Rotación de la imagen al pasar el mouse */
+}
+
+.tarjetaClientes .imagenCliente img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ajusta la imagen al tamaño del contenedor manteniendo la proporción y recortando si es necesario */
+}
+
+/* Estilos generales */
+.contenedorTarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 900px) {
+  .contenedorTarjetas {
+    width: 90%; /* Ocupa el 90% del ancho en pantallas pequeñas */
+    margin: 0 auto;
+  }
+
+  .tarjetaClientes {
+    width: 90%; /* Ocupa todo el ancho en pantallas pequeñas */
+  }
+
+  .tarjetaClientes .imagenCliente {
+    top: -20px; /* Mueve menos la imagen en pantallas pequeñas */
+  }
+}
+
+
+/*STYLE CLIENTES*/

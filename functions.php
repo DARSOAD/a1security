@@ -13,11 +13,6 @@ function get_excerpt($limit, $source = null){
 }
 add_post_type_support('page', 'excerpt'); 
 
-function add_thumbnail_support_for_clients() {
-    add_theme_support('post-thumbnails', array('Clients'));
-}
-add_action('after_setup_theme', 'add_thumbnail_support_for_clients');
-
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
 	$args = array(
@@ -28,11 +23,13 @@ function create_post_type() {
         'public' => true,
         'has_archive' => true,
 		'menu_icon'           => 'dashicons-testimonial', // string
-        'supports' => array('title', 'editor', 'thumbnail') // Añadir soporte para miniaturas
+        'supports' => array('title', 'editor', 'thumbnail'), // Añadir soporte para miniaturas
+        'show_in_rest' => true, // Habilita Gutenberg
 	);
 
 	/* Register the post type. */
 	register_post_type('Clients', $args);
 }
+
 
 ?>

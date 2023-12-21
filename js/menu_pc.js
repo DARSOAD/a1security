@@ -1,4 +1,23 @@
 jQuery(document).ready(function($) {
+    const tarjetas = document.querySelectorAll('.tarjetaClientes');
+
+    tarjetas.forEach(tarjeta => {
+    const imagen = tarjeta.querySelector('.imagenCliente img');
+    const imagenSrc = imagen.src; // Guardar la URL de la imagen original
+
+    tarjeta.addEventListener('mouseover', () => {
+        tarjeta.style.borderColor = 'gold'; // Cambiar el color del borde al pasar el mouse
+        imagen.src = 'nueva-url-de-imagen.jpg'; // Cambiar la imagen al pasar el mouse
+    });
+
+    tarjeta.addEventListener('mouseout', () => {
+        tarjeta.style.borderColor = '#000'; // Restaurar el color del borde al salir del mouse
+        imagen.src = imagenSrc; // Restaurar la imagen original al salir del mouse
+    });
+    });
+
+
+
     function morphDropdown(element) {
         this.element = element;
         this.mainNavigation = this.element.find('.main-nav');

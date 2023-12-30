@@ -3816,6 +3816,7 @@ Main Components
 
 .tarjetaClientes:hover {
   border-color: gold; /* Cambio de color del borde al pasar el mouse */
+  cursor: pointer;
 }
 
 .tarjetaClientes .contenidoCliente {

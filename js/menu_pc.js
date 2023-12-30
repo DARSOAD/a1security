@@ -2,20 +2,23 @@ jQuery(document).ready(function($) {
     const tarjetas = document.querySelectorAll('.tarjetaClientes');
 
     tarjetas.forEach(tarjeta => {
-        const imagen = tarjeta.querySelector('.imagenCliente img');
-        const imagenSrc = imagen.src; // Guardar la URL de la imagen original
+    const imagen = tarjeta.querySelector('.imagenCliente img');
+    const originalSrc = imagen.getAttribute('src');
+    const originalSrcset = imagen.getAttribute('srcset');
 
-        tarjeta.addEventListener('mouseover', () => {
-            tarjeta.style.borderColor = 'gold'; // Cambiar el color del borde al pasar el mouse
-            imagen.src = 'https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.png'; // Cambiar la imagen al pasar el mouse
-            console.log(imagenSrc);
-        });
-
-        tarjeta.addEventListener('mouseout', () => {
-            tarjeta.style.borderColor = '#000'; // Restaurar el color del borde al salir del mouse
-            imagen.src = imagenSrc; // Restaurar la imagen original al salir del mouse
-        });
+    tarjeta.addEventListener('mouseover', () => {
+        tarjeta.style.borderColor = 'gold';
+        imagen.setAttribute('src', 'https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg');
+        imagen.setAttribute('srcset', 'https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg 350w, https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg 300w');
     });
+
+    tarjeta.addEventListener('mouseout', () => {
+        tarjeta.style.borderColor = '#000';
+        imagen.setAttribute('src', originalSrc);
+        imagen.setAttribute('srcset', originalSrcset);
+    });
+    });
+
 
 
 

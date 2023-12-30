@@ -2,6 +2,8 @@ jQuery(document).ready(function($) {
     const tarjetas = document.querySelectorAll('.tarjetaClientes');
 
     tarjetas.forEach(tarjeta => {
+    const parrafo = tarjeta.querySelector('.contenidoCliente p');
+    const tituloH1 = tarjeta.querySelector('.contenidoCliente h1');
     const imagen = tarjeta.querySelector('.imagenCliente img');
     const originalSrc = imagen.getAttribute('src');
     const originalSrcset = imagen.getAttribute('srcset');
@@ -10,12 +12,17 @@ jQuery(document).ready(function($) {
         tarjeta.style.borderColor = 'gold';
         imagen.setAttribute('src', 'https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg');
         imagen.setAttribute('srcset', 'https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg 350w, https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg 300w');
+        tituloH1.style.display  = 'none';
+        parrafo.style.display  = 'block';
     });
 
     tarjeta.addEventListener('mouseout', () => {
         tarjeta.style.borderColor = '#000';
         imagen.setAttribute('src', originalSrc);
         imagen.setAttribute('srcset', originalSrcset);
+        tituloH1.style.display  = 'block'; 
+        parrafo.style.display  = 'none'; 
+
     });
     });
 

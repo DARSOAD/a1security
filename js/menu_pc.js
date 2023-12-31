@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
         imagen.setAttribute('src', 'https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg');
         imagen.setAttribute('srcset', 'https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg 350w, https://a1securitynyc.com/wp-content/themes/a1security/imagenes/iconos/LOGO_ESCUDO.jpg 300w');
         tituloH1.style.display  = 'none';
-        parrafo.style.display  = 'block';
+        parrafo.style.color  = 'black';
     });
 
     tarjeta.addEventListener('mouseout', () => {
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
         imagen.setAttribute('src', originalSrc);
         imagen.setAttribute('srcset', originalSrcset);
         tituloH1.style.display  = 'block'; 
-        parrafo.style.display  = 'none'; 
+        parrafo.style.color  = 'white'; 
 
     });
     });

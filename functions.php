@@ -25,6 +25,7 @@ function create_post_type() {
 		'menu_icon'           => 'dashicons-testimonial', // string
         'supports' => array('title', 'editor', 'thumbnail'), // Añadir soporte para miniaturas
         'show_in_rest' => true, // Habilita Gutenberg
+        'menu_order' => true, 
 	);
 
 	/* Register the post type. */

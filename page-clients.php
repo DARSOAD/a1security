@@ -25,7 +25,6 @@ get_header('page'); ?>
                             <div class="imagenCliente"><?php the_post_thumbnail(); ?></div>
                             <div class="contenidoCliente">
                                 <h1> <?php echo  get_the_title(); ?> </h1>
-                                <p style='display: none'><?php echo  get_the_content(); ?></p>
                             </div>
                             
                         </div>

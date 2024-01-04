@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
         imagen.setAttribute('src', originalSrc);
         imagen.setAttribute('srcset', originalSrcset);
         tituloH1.style.display  = 'block'; 
+        console.log(parrafo);
         parrafo.style.color  = 'white'; 
 
     });

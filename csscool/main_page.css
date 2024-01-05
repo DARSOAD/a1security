@@ -3806,7 +3806,7 @@ Main Components
 /* Estilos para tarjetas individuales */
 .tarjetaClientes {
   width: 30%; /* Ocupa inicialmente el 40% del ancho */
-  margin-bottom: 20px;
+  margin-bottom: 5%;
   box-sizing: border-box;
   border: 1px solid #000;
   border-radius: 20px;

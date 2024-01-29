@@ -1648,9 +1648,6 @@ nav > ul > li:first-child{border-left:none;}
 @media only screen and (max-width:1499px) and (min-width:1200px){.logo_pc img{width: 7em;}}
 @media only screen and (max-width:1199px) and (min-width:992px){.logo_pc img{width: 7em;}}
 @media only screen and (max-width:991px) and (min-width:600px){.logo_pc img{width: 7em;}}
-@media only screen and (max-width:599px) and (min-width:500px){.logo_movil{width: 9em !important;left: 30% !important;top:-45px !important;}}
-@media only screen and (max-width:499px) and (min-width:400px){.logo_movil{width: 9em !important;left: 25% !important;top:-45px !important;}}
-@media only screen and (max-width:399px) {.logo_movil{width: 8em !important;left: 25% !important;top:-20px !important;}}
 /* LOGO */
 /* MENU_MV */
 @media only screen and (max-width:992px){#main-nav #slide_out_menu{position:fixed;display:block;width:300px !important;height:100%;left:-300px;}
@@ -1670,7 +1667,7 @@ nav > ul > li:first-child{border-left:none;}
 #accordion5{text-align:left;margin-top:20% !important;width:90% !important;margin-left:5% !important;}
 .panel-group.pmd-accordion .panel{box-shadow:none !important;}
 .panel{background-color:transparent !important;}
-.logo_movil{width:30%;position:absolute;left:35%;top:-60px;}
+.logo_movil{width:30%;position:absolute;right: 10%;top:-60px;}
 .panel-group.pmd-accordion .panel > .panel-heading a{font-family:'Lato', sans-serif;font-weight:700;}
 .panel-body p{font-size:1em !important;font-family:'Lato', sans-serif;font-weight:400;color:#767676 !important;margin-bottom:3% !important;}
 /* MENU_MV */
@@ -3880,6 +3877,128 @@ Main Components
     top: -20px; /* Mueve menos la imagen en pantallas pequeñas */
   }
 }
+@media screen and (min-width: 900px) {.soloPc{display: flex;}.soloMovil{display: none;}}
+@media screen and (max-width: 900px) {.soloPc{display: none;}.soloMovil{display: flex;}}
 
 
 /*STYLE CLIENTES*/
+/* Servicios */
+
+.services {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.service {
+ 
+  width: 90%;
+  margin-left: 5%;
+}
+
+.service-header.activer {
+  border-color: rgb(255, 255, 255);
+  
+}
+.service-header.activer h3{
+  color: white;
+}
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 75%;
+  margin-left: 25%;
+  border-bottom: 1px solid #ccc;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.service-header .title {
+  margin: 0;
+}
+
+.service-details {
+  display: none;
+  padding: 10px;
+}
+
+.service-details.active {
+  display: flex !important;
+}
+
+.service-details .thumbnaill img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10%;
+}
+
+.thumbnaill{
+  width: 25%;
+  border-radius: 10%;
+}
+
+.info{
+  width: 75%;
+  border-bottom: 1px solid rgb(225, 195, 112);
+  height: fit-content;
+}
+
+.service-details .info {
+  margin-left: 10px;
+}
+
+.service-details .info .title {
+  margin-top: 0;
+}
+
+.service-details .info .description {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.service-details .info .action-btn,
+.service-details .info .close-btn {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.5s ease-in-out;
+}
+
+.toggle-btn.cerrar {
+  transform: rotate(45deg);
+}
+
+.tituloServicio{
+  margin: 5%;
+  border-bottom: thin rgb(139, 139, 139);
+}
+
+@media only screen and (max-width:991px){
+  .tituloServicio{
+    margin: 5% 0;
+    text-align: center;
+  }
+  .service-header, .info {
+    width: 100%;
+    margin: 0;
+  }
+  .info{
+    text-align: center;
+  }
+}
+
+.imagenClienteService{
+  width: 30px;
+  height: 30px;
+}
+.imagenClienteService img{
+  height: auto;
+}

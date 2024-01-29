@@ -122,32 +122,32 @@
 	$(document).ready(function() {
 		//servicios
 		$(".toggle-btn").click(function() {
-    var service = $(this).closest(".service");
-    var serviceHeader = service.find(".service-header");
-    var serviceDetails = service.find(".service-details");
-    var openService = $(".service-details.active");
-    var openServiceheader = $(".service-header.activer");
+		var service = $(this).closest(".service");
+		var serviceHeader = service.find(".service-header");
+		var serviceDetails = service.find(".service-details");
+		var openService = $(".service-details.active");
+		var openServiceheader = $(".service-header.activer");
 
-    if (serviceDetails.hasClass("active")) {
-      serviceDetails.animate({ height: '0px' }, 500, function() {
-        serviceHeader.removeClass("activer");
-        serviceDetails.removeClass("active").css('display', 'none');
-      });
-      $(this).removeClass("cerrar");
-    } else {
-      if (openService.length > 0) {
-        openService.animate({ height: '0px' }, 500, function() {
-          openService.removeClass("active").css('display', 'none');
-          openService.prev().find(".toggle-btn").removeClass("cerrar");
-		  openServiceheader.removeClass("activer");
-        });
-      }
-        serviceHeader.addClass("activer");
-      serviceDetails.css('display', 'block').addClass("active")
-        .animate({ height: serviceDetails.get(0).scrollHeight }, 500);
-      $(this).addClass("cerrar");
-    }
-  });
+		if (serviceDetails.hasClass("active")) {
+		serviceDetails.animate({ height: '0px' }, 500, function() {
+			serviceHeader.removeClass("activer");
+			serviceDetails.removeClass("active").css('display', 'none');
+		});
+		$(this).removeClass("cerrar");
+		} else {
+		if (openService.length > 0) {
+			openService.animate({ height: '0px' }, 500, function() {
+			openService.removeClass("active").css('display', 'none');
+			openService.prev().find(".toggle-btn").removeClass("cerrar");
+			openServiceheader.removeClass("activer");
+			});
+		}
+			serviceHeader.addClass("activer");
+		serviceDetails.css('display', 'block').addClass("active")
+			.animate({ height: serviceDetails.get(0).scrollHeight }, 500);
+		$(this).addClass("cerrar");
+		}
+	});
 
   $(".close-btn").click(function() {
     var serviceDetails = $(this).closest(".service-details");

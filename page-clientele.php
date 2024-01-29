@@ -5,7 +5,7 @@
 get_header('page'); ?>
 		<section id="contenido">
 			<h1><?php the_title();?></h1>
-		<div class="contenedorTarjetas">
+		<div class="contenedorTarjetas soloPc">
             
         
            
@@ -45,6 +45,45 @@ get_header('page'); ?>
         
 
 
+		</div>	
+        <div class="contenedorTarjetas soloMovil">
+            <?php
+                $args = array(
+                    'post_type' => 'Clients', // Reemplaza 'Clients' con el nombre de tu tipo de entrada personalizado
+                    'posts_per_page' => -1,   // Muestra todos los posts, -1 para mostrar todos
+                    'orderby' => 'date', // Ordenar por fecha
+                    'order' => 'ASC' // En orden ascendente (de más antiguo a más reciente)
+
+                );
+
+                $query = new WP_Query($args);
+
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) : $query->the_post();
+                ?>
+                <div class="service">
+                    <div class="service-header">
+                        <div class="imagenClienteService">
+                                <?php the_post_thumbnail(); ?>
+                        </div>
+                        <h3 class="title letra36pt-pc letra5pt-mv"><?php the_title();?></h3>
+                        <button class="toggle-btn">+</button>
+                    </div>
+                    <div class="service-details">
+                        <div class="info">	
+                            <h3 class="title letra36pt-pc letra5pt-mv"><?php the_title();?></h3>
+                            <p class="description letra25pt-pc letra4pt-mv"><?php echo get_the_content();?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php 
+                endwhile; 
+                else :
+                // No se encontraron posts
+                echo 'No se encontraron entradas.';
+                endif;
+            
+            ?>	
 		</div>	
 		</section>	
 		

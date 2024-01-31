@@ -92,5 +92,77 @@ get_header(); ?>
 				</form>
 				<!-------------------FORMULARIO PASOS---------------->		
 			</div>
+			<!-- <div class="bloquereviews">
+				<div class="review">
+					<div class="review-item">
+						<h2>Título 1</h2>
+						<p>Texto más clarito 1</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 2</h2>
+						<p>Texto más clarito 2</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 3</h2>
+						<p>Texto más clarito 3</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 4</h2>
+						<p>Texto más clarito 4</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 5</h2>
+						<p>Texto más clarito 5</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 6</h2>
+						<p>Texto más clarito 6</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 7</h2>
+						<p>Texto más clarito 7</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 8</h2>
+						<p>Texto más clarito 8</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 1</h2>
+						<p>Texto más clarito 1</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 2</h2>
+						<p>Texto más clarito 2</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 3</h2>
+						<p>Texto más clarito 3</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 4</h2>
+						<p>Texto más clarito 4</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 5</h2>
+						<p>Texto más clarito 5</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 6</h2>
+						<p>Texto más clarito 6</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 7</h2>
+						<p>Texto más clarito 7</p>
+					</div>
+					<div class="review-item">
+						<h2>Título 8</h2>
+						<p>Texto más clarito 8</p>
+					</div>
+				</div>
+				<div class="review-nav">
+					<button class="ant">&lt;</button>
+					<button class="sig">&gt;</button>
+				</div>
+			</div> -->
 				
 	<?php get_footer(); ?>

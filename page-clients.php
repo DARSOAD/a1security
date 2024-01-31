@@ -14,7 +14,7 @@ get_header('page'); ?>
                     'post_type' => 'Clients', // Reemplaza 'Clients' con el nombre de tu tipo de entrada personalizado
                     'posts_per_page' => -1,   // Muestra todos los posts, -1 para mostrar todos
                     'orderby' => 'date', // Ordenar por fecha
-                    'order' => 'ASC' // En orden ascendente (de más antiguo a más reciente)
+                    'order' => 'DES' // En orden ascendente (de más antiguo a más reciente)
 
                 );
 
@@ -52,7 +52,7 @@ get_header('page'); ?>
                     'post_type' => 'Clients', // Reemplaza 'Clients' con el nombre de tu tipo de entrada personalizado
                     'posts_per_page' => -1,   // Muestra todos los posts, -1 para mostrar todos
                     'orderby' => 'date', // Ordenar por fecha
-                    'order' => 'ASC' // En orden ascendente (de más antiguo a más reciente)
+                    'order' => 'DES' // En orden ascendente (de más antiguo a más reciente)
 
                 );
 

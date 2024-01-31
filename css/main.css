@@ -3359,3 +3359,56 @@ a:link{text-decoration:none;}
     text-align: center;
   }
 }
+
+
+/*** reviews ***/
+.bloquereviews {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 20px 0;
+  height: 200px;
+}
+
+.review {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.review-item {
+  flex: 0 0 10%; /* Muestra 3 elementos en pantalla */
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+@media only screen and (max-width:991px){
+  .review-item {
+    flex: 0 0 20%; /* Muestra 3 elementos en pantalla */
+  } 
+}
+.review-item h2 {
+  margin-bottom: 10px;
+}
+
+.review-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.ant,
+.sig {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ant:hover,
+.sig:hover {
+  background-color: #555;
+}

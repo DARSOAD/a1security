@@ -18,7 +18,7 @@
 							<a href="<?php echo get_site_url(); ?>/?page_id=93" class="menu__link letra17pt-pc">CLIENTS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; </a>
 						</li>
 						<li class="links  sub-menu-parent " data-content="testimonials">
-							<a href="<?php echo get_site_url(); ?>/?page_id=134" class="menu__link letra17pt-pc">TESTIMONIALS</a>
+							<a href="<?php echo get_site_url(); ?>/?page_id=143" class="menu__link letra17pt-pc">TESTIMONIALS</a>
 						</li>
 					</ul>
 				</nav>

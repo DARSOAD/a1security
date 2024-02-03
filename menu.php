@@ -15,7 +15,10 @@
 							<a href="<?php echo get_site_url(); ?>/?page_id=71" class="menu__link letra17pt-pc">ABOUT US &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>
 						<li class="links  sub-menu-parent " data-content="clients">
-							<a href="<?php echo get_site_url(); ?>/?page_id=93" class="menu__link letra17pt-pc">CLIENTS &nbsp;&nbsp;&nbsp; </a>
+							<a href="<?php echo get_site_url(); ?>/?page_id=93" class="menu__link letra17pt-pc">CLIENTS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; </a>
+						</li>
+						<li class="links  sub-menu-parent " data-content="testimonials">
+							<a href="<?php echo get_site_url(); ?>/?page_id=134" class="menu__link letra17pt-pc">TESTIMONIALS</a>
 						</li>
 					</ul>
 				</nav>
@@ -46,11 +49,11 @@
 								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/?page_id=93"> Clients</a></h4>
 							</div>
 						</div>
-						<!--<div class="panel panel-default"> 
+						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/catalogo/?vara=buzos"> Buzos</a></h4>
+								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/?page_id=93"> Testimonials</a></h4>
 							</div>
-						</div>-->
+						</div>
 					</div> <!-- Accordion with No Space example end -->
 				</div>	
 					<!-------------------------------------------------------------------------------------------------------------------------------->

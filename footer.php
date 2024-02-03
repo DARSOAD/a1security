@@ -118,65 +118,11 @@
 		<script src="<?php echo get_template_directory_uri(); ?>/js/menu_pc.js"></script>
 		<!-------------------MENU PC js---------------->		
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" async></script>
+
 <script>
 	$(document).ready(function() {
 		//reviews
-		const review = $('.review');
-		const bloquereviews = $('.bloquereviews').width();
-		const reviewItem = $('.review-item');
-		const prevBtn = $('.ant');
-		const nextBtn = $('.sig');
-
-		const itemWidth = reviewItem.outerWidth(true);
-		const reviewItemwidth = reviewItem.width();
-		let currentTranslate = 0;
-
-		// Ajustar el ancho del carrusel según la cantidad de elementos
-		review.width(itemWidth * reviewItem.length);
-
-		// Evento para el botón de siguiente
-		nextBtn.on('click', function() {
-			console.log("currentTranslate",currentTranslate ,"itemWidth",itemWidth,"(-itemWidth * (reviewItem.length ))",(-itemWidth * (reviewItem.length )),"bloquereviews",bloquereviews,"reviewItemwidth",reviewItemwidth,"review.width()",review.width());
-			if (currentTranslate > (-itemWidth * (reviewItem.length ))) {
-				currentTranslate -= itemWidth;
-				review.css('transform', 'translateX(' + currentTranslate + 'px)');
-			}
-		});
-
-		// Evento para el botón de anterior
-		prevBtn.on('click', function() {
-			console.log('prev');
-			if (currentTranslate < 0) {
-				currentTranslate += itemWidth;
-				review.css('transform', 'translateX(' + currentTranslate + 'px)');
-			}
-		});
-
-		// Arrastrar en dispositivos móviles
-		let touchStartX = 0;
-		let touchEndX = 0;
-
-		review.on('touchstart', function(e) {
-			touchStartX = e.originalEvent.touches[0].pageX;
-		});
-
-		review.on('touchend', function(e) {
-			touchEndX = e.originalEvent.changedTouches[0].pageX;
-			handleGesture();
-		});
-
-		function handleGesture() {
-			if (touchEndX < touchStartX && currentTranslate > -itemWidth * (reviewItem.length - 3)) {
-				// Deslizar a la izquierda
-				currentTranslate -= itemWidth;
-			} else if (touchEndX > touchStartX && currentTranslate < 0) {
-				// Deslizar a la derecha
-				currentTranslate += itemWidth;
-			}
-
-			review.css('transform', 'translateX(' + currentTranslate + 'px)');
-		}
-
+		
 		//servicios
 		$(".toggle-btn").click(function() {
 		var service = $(this).closest(".service");
@@ -215,8 +161,6 @@
     });
   });
 	
-		//servicios
-
 		//custom function to add and remove active class
 		$(function () {			
 			$(".collapse.in").parents(".panel").addClass("active");

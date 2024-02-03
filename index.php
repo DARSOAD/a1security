@@ -92,77 +92,90 @@ get_header(); ?>
 				</form>
 				<!-------------------FORMULARIO PASOS---------------->		
 			</div>
-			<!-- <div class="bloquereviews">
-				<div class="review">
-					<div class="review-item">
-						<h2>Título 1</h2>
-						<p>Texto más clarito 1</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 2</h2>
-						<p>Texto más clarito 2</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 3</h2>
-						<p>Texto más clarito 3</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 4</h2>
-						<p>Texto más clarito 4</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 5</h2>
-						<p>Texto más clarito 5</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 6</h2>
-						<p>Texto más clarito 6</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 7</h2>
-						<p>Texto más clarito 7</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 8</h2>
-						<p>Texto más clarito 8</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 1</h2>
-						<p>Texto más clarito 1</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 2</h2>
-						<p>Texto más clarito 2</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 3</h2>
-						<p>Texto más clarito 3</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 4</h2>
-						<p>Texto más clarito 4</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 5</h2>
-						<p>Texto más clarito 5</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 6</h2>
-						<p>Texto más clarito 6</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 7</h2>
-						<p>Texto más clarito 7</p>
-					</div>
-					<div class="review-item">
-						<h2>Título 8</h2>
-						<p>Texto más clarito 8</p>
+			<div class="bloquereviews">
+				<h1 id='testTitulo' class='letra6pt-mv'>Testimonials</h1>
+					<?php
+                $args = array(
+                    'post_type' => 'Reviews', // Reemplaza 'Clients' con el nombre de tu tipo de entrada personalizado
+                    'posts_per_page' => -1,   // Muestra todos los posts, -1 para mostrar todos
+                    'orderby' => 'date', // Ordenar por fecha
+                    'order' => 'ASC' // En orden ascendente (de más antiguo a más reciente)
+
+                );
+
+                $query = new WP_Query($args);
+
+                if ($query->have_posts()) :
+					$i = 1;
+                    while ($query->have_posts()) : $query->the_post();
+                        // Contenido del loop
+						$inicialOfinal = ($i-1)%5;
+						if($i > 1){
+							$enteroIndice = intdiv($i, 5);
+							$indice = $i-(5*$enteroIndice);
+						}else{
+							$indice = 1;
+						}
+						$indiceO = 1;
+						if($indice == 0){
+							$indiceO = $indice;
+							$indice = 5;
+						}
+						
+						if($inicialOfinal==0){ 
+								?> 
+							<div class="outerdiv">
+							<div class="innerdiv">
+								<?php
+						}
+						$dark = 'dark';
+						$excerpt = get_the_excerpt();
+                        ?> 
+						<div class='div<?php echo $indice ?> eachdiv'>
+							<div class="userdetails">
+							<div class="imgbox">
+							<?php the_post_thumbnail(); ?>
+							</div>
+							<div class="detbox">
+								<p class='name <?php if($indice == 3 || $indice == 4){ echo $dark;} ?>'><?php echo  get_the_title(); ?></p>
+							</div>
+							</div>
+							<div class='review <?php if($indice == 3 || $indice == 4){ echo $dark;} ?>'>
+							<a  href="<?php the_permalink() ?>"> 
+								<h4>"<?php 
+								if($indice == 2){ 
+									$excerpt = wp_trim_words($excerpt, 20);
+								} 
+								if($indice == 3){ 
+									$excerpt = wp_trim_words($excerpt, 45);
+								} 
+								if($indice == 4){ 
+									$excerpt = wp_trim_words($excerpt, 20);
+								} 
+								echo  $excerpt; ?>"</h4> 
+							</a>
+							</div>
+						</div>
+                        <?php
+						if($indiceO == 0){
+							?> 
+								</div>
+								</div>
+							<?php
+						}
+						$i++;
+                    endwhile;
+                    wp_reset_postdata(); // Restaura los datos del post original
+                else :
+                    // No se encontraron posts
+                    echo 'No se encontraron entradas.';
+                endif;
+            ?>
+						
+									
 					</div>
 				</div>
-				<div class="review-nav">
-					<button class="ant">&lt;</button>
-					<button class="sig">&gt;</button>
-				</div>
-			</div> -->
+				
+			</div>
 				
 	<?php get_footer(); ?>

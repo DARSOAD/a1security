@@ -3862,6 +3862,10 @@ Main Components
   margin-left: 10%;
 }
 
+.contenidoCompleto{
+  display: none ;
+}
+
 /* Media query para pantallas pequeñas */
 @media screen and (max-width: 900px) {
   .contenedorTarjetas {

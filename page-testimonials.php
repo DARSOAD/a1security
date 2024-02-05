@@ -23,6 +23,8 @@ get_header('page'); ?>
                 if ($query->have_posts()) :
                     while ($query->have_posts()) : $query->the_post();
                         // Contenido del loop
+                        $excerpt = get_the_excerpt();
+                        $excerpt = wp_trim_words($excerpt, 20);
                         ?> 
                         <div class="tarjetaClientes">
                             <div class="imagenCliente">
@@ -30,7 +32,8 @@ get_header('page'); ?>
                             </div>
                             <div class="contenidoCliente">
                                 <h1> <?php echo  get_the_title(); ?> </h1>
-                                <?php echo  get_the_content(); ?>
+                                <p> <?php echo  $excerpt; ?></p>   
+                                <div class='contenidoCompleto'> <?php echo  get_the_content(); ?></div>   
                             </div>
                             
                         </div>

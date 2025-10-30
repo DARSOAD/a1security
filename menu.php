@@ -4,7 +4,7 @@
 				<a href="<?php echo get_site_url(); ?>/" class="celular tablet"><figure class="logo_pc"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO.png" alt="Logo A1 security"></figure></a>
 				<a href="#0" class="nav-trigger">Open Nav<span aria-hidden="false"></span></a>
 				<nav class="main-nav menu">
-					<ul id="menupc">						
+					<ul id="menupc">							
 						<li class="links  sub-menu-parent active " data-content="home">
 							<a href="<?php echo get_site_url(); ?>" class="menu__link letra17pt-pc">HOME&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>

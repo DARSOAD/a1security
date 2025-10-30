@@ -71,22 +71,32 @@
 							<li class="celular"><a href="tel:+19178283434" target="_blank"> (917) 828-3434 </a></li>		
 						</ul>
 					</div>	
-					<!-- <div id="movilredes">
-						<figure class="celular redesmovil">
+					<div id="movilredes">
+						<!-- <figure class="celular redesmovil">
 							<a href="https://www.facebook.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/facebook.png" alt="facebook"></a>							
 						</figure>
 						<figure class="celular redesmovil">
 							<a href="https://www.instagram.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/instagram.png" alt="instagram"></a>				
+						</figure> -->
+						<figure class="celular" id='bbbMovile'>
+							<a href="https://www.bbb.org/us/ny/new-york/profile/security/a1-security-professionals-inc-0121-87182708/#sealclick" target="_blank" rel="nofollow">
+								<img  src="https://seal-newyork.bbb.org/seals/black-seal-293-61-bbb-87182708.png" style="border: 0;" alt="A1 Security Professionals Inc. BBB Business Review" />
+							</a>
 						</figure>
 					</div>						
 					<div id="redessociales">
-						<figure class="pc">
+						<!-- <figure class="pc">
 							<a href="https://www.facebook.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/facebook.png" alt="facebook"></a>							
 						</figure>
 						<figure class="pc">
 							<a href="https://www.instagram.com/.co/"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/instagram.png" alt="instagram"></a>				
-						</figure>					
-					</div> -->
+						</figure>			 -->
+						<figure class="pc">
+							<a href="https://www.bbb.org/us/ny/new-york/profile/security/a1-security-professionals-inc-0121-87182708/#sealclick" target="_blank" rel="nofollow">
+								<img id="bbb" src="https://seal-newyork.bbb.org/seals/black-seal-293-61-bbb-87182708.png" style="border: 0;" alt="A1 Security Professionals Inc. BBB Business Review" />
+							</a>
+						</figure>			
+					</div>
 					<div id="sombra" ></div>
 					<div id="terminosycondiciones">
 						<h4> Copyright &#169; A1 Security Professionals</h4>

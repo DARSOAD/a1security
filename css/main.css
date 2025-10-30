@@ -2467,6 +2467,7 @@ a:link{text-decoration:none;}
 @media only screen and (max-width:499px) and (min-width:400px){#bloque5 #terminosycondiciones{font-size:18px !important;}}
 @media only screen and (max-width:399px){#bloque5 #terminosycondiciones{font-size:15px !important;}}
 #bloque5 footer #redessociales img{height:auto !important;margin-left:40% !important;width: 100%;}
+#bbbMovile{width: 90% !important; margin-left: 20% !important;}
 #bloque5 footer #redessociales figure{float:right;width:3.5% !important;margin-left:0 !important;margin-right:3%!important;}
 #bloque5 footer #redessociales{margin-left:0%!important;width:68% !important;}
 .redesmovil{float: right;width: 10% !important;margin-right: 10%;}
@@ -3552,4 +3553,13 @@ a:link{text-decoration:none;}
   color: #333;
   margin-bottom: 5%
   
+}
+#bbb{
+  width: auto !important;
+}
+#bbbMenu{
+  width: 10% !important;
+}
+#bbnMenuImagen{
+  width: auto;
 }

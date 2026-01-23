@@ -9,7 +9,7 @@
 							<a href="<?php echo get_site_url(); ?>" class="menu__link letra17pt-pc">HOME&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
 						</li>
 						<li class="links  sub-menu-parent active " data-content="about us">
-							<a href="tel:+19178283434" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
+							<a onclick="return gtag_report_conversion('tel:917-828-3434');" href="tel:+19178283434" class="menu__link letra17pt-pc">CALL (917) 828-3434&nbsp;&nbsp;&nbsp;</a>
 						</li>
 						<li class="links  sub-menu-parent active " data-content="aboutus">
 							<a href="<?php echo get_site_url(); ?>/?page_id=71" class="menu__link letra17pt-pc">ABOUT US &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>

@@ -57,9 +57,7 @@
 						<h3 class="footerh3"> CONTACT US </h3>
 						<ul class="footerul footerul2">
 							<li><a href=""> a1securenyc@gmail.com </a></li>
-							<!-- <li class="celular"> Cll 10 No 20-35, San Andresito San José </li>
-							<li class="celular"> Local 110 Bogotá Colombia </li> -->
-							<li class="pc tablet"><a href="tel:+19178283434" target="_blank"> (917) 828-3434 </a></li>							
+							<li class="pc tablet"><a onclick="return gtag_report_conversion('tel:917-828-3434');" href="tel:+19178283434" target="_blank"> (917) 828-3434 </a></li>							
 						</ul>
 					</div>
 					<div id="footerdatoscontacto">

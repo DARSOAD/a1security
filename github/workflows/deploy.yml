@@ -1,0 +1,40 @@
+name: Deploy Theme to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # ⚠️ IMPORTANTE: Si tu rama se llama 'master', cambia esto a 'master'
+
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        
+        # 📂 RUTA DEL SERVIDOR (Hostinger)
+        # Aquí es donde llegarán tus archivos.
+        server-dir: /public_html/wp-content/themes/a1security/
+        
+        # 📂 RUTA LOCAL (Tu Repo)
+        # Como tu repo YA ES la carpeta del tema, subimos la raíz (./)
+        local-dir: ./
+        
+        # 🚫 EXCLUSIONES
+        # Archivos que NO quieres subir a Hostinger
+        exclude: |
+          **/.git*
+          **/.github*
+          **/.gitignore
+          **/node_modules/**
+          README.md
+          docker-compose.yml

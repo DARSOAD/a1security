@@ -36,16 +36,7 @@
 			@media only screen and (max-width:767px) {#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/portadaPage_mv.png");}} 
 		----------------------PORTADA------------------------------*/
 		</style>	
-	<!---------------------------------------SMART LOOK------------------->
-<script type="text/javascript">
-    window.smartlook||(function(d) {
-    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-    c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
-    })(document);
-    smartlook('init', 'dfa4ea7e12c38b1a47a4e319b711be9fb698671d');
-</script>
-		<!---------------------------------------SMART LOOK------------------->
+	<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11452936391'); </script>
 </head>
 <body>
 <?php get_template_part('menu_catalogo'); ?>

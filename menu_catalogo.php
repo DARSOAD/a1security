@@ -35,7 +35,7 @@
 						</div>
 						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="tel:+19178283434"> Call (917) 828-3434</a></h4>
+								<h4 class="panel-title"><a href="tel:+19178283434" onclick="return gtag_report_conversion('tel:917-828-3434');"> Call (917) 828-3434</a></h4>
 							</div>
 						</div>
 						<div class="panel panel-default"> 

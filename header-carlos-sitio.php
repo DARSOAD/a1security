@@ -45,7 +45,9 @@
 			}
 		/*----------------------PORTADA------------------------------*/
 		</style>
-</head>
+		<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11452936391'); </script>
+			<!-- Event snippet for Click to call website conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> <script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-11452936391/-Cn1COOJpOsbEMfhl9Uq', 'event_callback': callback }); return false; } </script>
+	</head>
 <body>
 <?php get_template_part('menu_catalogo'); ?>
 	</div>	

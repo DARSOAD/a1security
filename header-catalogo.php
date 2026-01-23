@@ -26,16 +26,8 @@
 			@media only screen and (max-width:767px) {#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/portadaPage_mv.png");}} 
 		----------------------PORTADA------------------------------*/
 		</style>	
-	<!---------------------------------------SMART LOOK------------------->
-<script type="text/javascript">
-    window.smartlook||(function(d) {
-    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-    c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
-    })(document);
-    smartlook('init', 'dfa4ea7e12c38b1a47a4e319b711be9fb698671d');
-</script>
-		<!---------------------------------------SMART LOOK------------------->
+	<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11452936391'); </script>
+	<!-- Event snippet for Click to call website conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> <script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-11452936391/-Cn1COOJpOsbEMfhl9Uq', 'event_callback': callback }); return false; } </script>
 </head>
 <div>
 		<a href="https://wa.me/573053449733" id="whatsapp" style="display: none;">

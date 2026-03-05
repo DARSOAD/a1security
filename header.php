@@ -29,6 +29,24 @@
 		<!-------------------ICONS---------------->
 		<!-------------------FONTS---------------->
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" async>
+		<style>
+			@font-face {
+				font-family: 'Roc Grotesk Wide Bold';
+				/* Get_template_directory_uri() apunta a la carpeta de tu tema automáticamente */
+				src: url('<?php echo get_template_directory_uri(); ?>/fonts/roc-grotesk-wide-bold/roc-grotesk-wide-bold.woff2') format('woff2');
+				font-weight: 900;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'Roc Grotesk Wide';
+				/* Get_template_directory_uri() apunta a la carpeta de tu tema automáticamente */
+				src: url('<?php echo get_template_directory_uri(); ?>/fonts/roc-grotesk-wide-bold/roc-grotesk-wide.woff2') format('woff2');
+				font-weight: 300;
+				font-style: normal;
+				font-display: swap;
+			}
+		</style>
 		<!-------------------FONTS---------------->
 		<!-------------------BOOTSTRAP---------------->
 		<link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet" async>
@@ -72,7 +90,8 @@
         
 		<?php if(is_home()){ ?>
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css" async>		
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/letra.css" async>		
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/letra.css" async>	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 		<?php } ?>
 		<?php if(is_single()){ ?>		
 		
@@ -124,6 +143,7 @@
 			<link href="<?php echo get_template_directory_uri(); ?>/css/blog.css" rel="stylesheet" async>	
 		<?php } ?>	
 		
+
 		
 		<style type="text/css">
 		/*----------------------ON/OFF ------------------------------*/		
@@ -143,8 +163,8 @@
 		/*----------------------POSICIÓN------------------------------*/
 		<?php if(is_home()){ ?>
 		/*----------------------PORTADA------------------------------*/
-			@media only screen and  (min-width:992px){#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/bloque1.jpg");}}
-			@media only screen and (max-width:991px) and  (min-width:768px){#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/Portada_inicio-tb.jpg");}}
+			@media only screen and  (min-width:768px){#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/bloque1.jpg");}}
+			/* @media only screen and (max-width:991px) and  (min-width:768px){#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/Portada_inicio-tb.jpg");}} */
 			@media only screen and (max-width:767px) {#bloque1{background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/Portada_inicio-mv.jpg");}}
 		/*----------------------PORTADA------------------------------*/
 		/*----------------------BANNER BLOQUE 3------------------------------*/

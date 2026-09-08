@@ -12,6 +12,10 @@ function get_excerpt($limit, $source = null){
 }
 add_post_type_support('page', 'excerpt'); 
 
+// Habilitar estilos por defecto de Gutenberg en el frontend
+add_theme_support( 'wp-block-styles' );
+add_theme_support( 'align-wide' );
+add_theme_support( 'responsive-embeds' );
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
 	$args = array(

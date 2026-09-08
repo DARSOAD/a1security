@@ -51,7 +51,7 @@
 						</div>
 						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/?page_id=93"> Testimonials</a></h4>
+								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/?page_id=143"> Testimonials</a></h4>
 							</div>
 						</div>
 					</div> <!-- Accordion with No Space example end -->

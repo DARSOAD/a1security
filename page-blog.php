@@ -1,5 +1,6 @@
 <?php
 /**
+ * Template Name: Blog Page
  * Blog index template (used for the Posts page)
  */
 get_header('page'); ?>

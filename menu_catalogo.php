@@ -17,7 +17,10 @@
 							<a href="<?php echo get_site_url(); ?>/?page_id=93" class="menu__link letra17pt-pc">CLIENTS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; </a>
 						</li>
 						<li class="links  sub-menu-parent " data-content="testimonials">
-							<a href="<?php echo get_site_url(); ?>/?page_id=143" class="menu__link letra17pt-pc">TESTIMONIALS</a>
+							<a href="<?php echo get_site_url(); ?>/?page_id=143" class="menu__link letra17pt-pc">TESTIMONIALS &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
+						</li>
+						<li class="links  sub-menu-parent " data-content="blog">
+							<a href="<?php echo get_site_url(); ?>/blog/" class="menu__link letra17pt-pc">BLOG</a>
 						</li>
 					</ul>
 				</nav>
@@ -51,6 +54,11 @@
 						<div class="panel panel-default"> 
 							<div class="panel-heading" role="tab" id="headingOne">
 								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/?page_id=143"> Testimonials</a></h4>
+							</div>
+						</div>
+						<div class="panel panel-default"> 
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title"><a href="<?php echo get_site_url(); ?>/blog/"> Blog</a></h4>
 							</div>
 						</div>
 					</div> <!-- Accordion with No Space example end -->

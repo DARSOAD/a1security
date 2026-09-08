@@ -25,12 +25,12 @@ get_header('page'); ?>
                             </div>
                         <?php else: ?>
                             <!-- Fallback for posts without image -->
-                            <div class="imagen-blog-fallback" style="width: 100%; height: 10px; background-color: #ba007c;"></div>
+                            <div class="imagen-blog-fallback" style="width: 100%; height: 10px; background-color: rgb(255, 219, 88);"></div>
                         <?php endif; ?>
                         
                         <div style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
                             <h2 style="margin: 0 0 10px 0; font-size: 1.4em; font-weight: bold; line-height: 1.3;">
-                                <a href="<?php the_permalink(); ?>" style="color: #333; text-decoration: none;"><?php the_title(); ?></a>
+                                <a href="<?php the_permalink(); ?>" style="color: #062132; text-decoration: none;"><?php the_title(); ?></a>
                             </h2>
                             <div class="meta" style="color: #888; font-size: 0.9em; margin-bottom: 15px;">
                                 <?php echo get_the_date(); ?>
@@ -39,7 +39,7 @@ get_header('page'); ?>
                                 <?php echo wp_trim_words(get_the_excerpt(), 25, '...'); ?>
                             </div>
                             <div>
-                                <a href="<?php the_permalink(); ?>" style="display: inline-block; color: #fff; background-color: #ba007c; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9em; transition: 0.3s opacity;">Read More</a>
+                                <a href="<?php the_permalink(); ?>" style="display: inline-block; color: #062132; background-color: rgb(255, 219, 88); padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9em; transition: 0.3s opacity;">Read More</a>
                             </div>
                         </div>
                     </article>
@@ -61,7 +61,7 @@ get_header('page'); ?>
                     <style>
                         .paginacion .nav-links { display: flex; justify-content: center; gap: 10px; }
                         .paginacion .page-numbers { padding: 8px 15px; border: 1px solid #ddd; color: #333; border-radius: 4px; text-decoration: none; }
-                        .paginacion .page-numbers.current { background: #ba007c; color: white; border-color: #ba007c; }
+                        .paginacion .page-numbers.current { background: rgb(255, 219, 88); color: #062132; border-color: rgb(255, 219, 88); }
                     </style>
                 </div>
             <?php

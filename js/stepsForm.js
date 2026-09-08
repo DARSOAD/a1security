@@ -2,7 +2,7 @@
 stepsForm.prototype._progress=function(){this.progress.style.width=this.current*(100/this.questionsCount)+'%';}
 stepsForm.prototype._updateQuestionNumber=function(){this.nextQuestionNum=document.createElement('span');this.nextQuestionNum.className='number-next';this.nextQuestionNum.innerHTML=Number(this.current+1);this.questionStatus.appendChild(this.nextQuestionNum);}
 stepsForm.prototype._submit=function(){this.options.onSubmit(this.el);}
-stepsForm.prototype._validade=function(){var input=this.questions[this.current].querySelector('input').value;if(input===''){this._showError('EMPTYSTR');return false;}return true;}
-stepsForm.prototype._showError=function(err){var message='';switch(err){case'EMPTYSTR':message='Por favor, llena el campo antes de continuar';break;case'INVALIDEMAIL':message='Por favor, llena el campo antes de continuar';break;};this.error.innerHTML=message;classie.addClass(this.error,'show');}
+stepsForm.prototype._validade=function(){var inputEl=this.questions[this.current].querySelector('input');var input=inputEl.value;if(input==='' && inputEl.name !== 'comentarios' && inputEl.name !== 'message'){this._showError('EMPTYSTR');return false;}return true;}
+stepsForm.prototype._showError=function(err){var message='';switch(err){case'EMPTYSTR':message='Please fill in this field before continuing';break;case'INVALIDEMAIL':message='Please enter a valid email address';break;};this.error.innerHTML=message;classie.addClass(this.error,'show');}
 stepsForm.prototype._clearError=function(){classie.removeClass(this.error,'show');}
 window.stepsForm=stepsForm;})(window);

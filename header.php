@@ -52,7 +52,7 @@
 		<link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet" async>
 		<!-------------------BOOTSTRAP---------------->	
 		
-        <?php if( !is_home() ){ ?>		
+        <?php if( !is_home() && !is_page_template('page-lp-hospitality.php') && !is_page_template('page-lp-corporate.php') ){ ?>		
 		<!-------------------RESET---------------->
 		<style type="text/css">
 			html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{margin:0 !important;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
@@ -119,6 +119,15 @@
 
 		<?php if( is_page() ){ ?>
 		<link href="<?php echo get_template_directory_uri(); ?>/css/page.css" rel="stylesheet" async>
+        <!-------------------MENU PC CSS---------------->
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu.css" async>
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/logo.css" async>
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_mv.css" async>	
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" async>
+		<link rel="stylesheet" href="https://propeller.in/components/icons/css/google-icons.css" async>	 
+		<link rel="stylesheet" href="https://propeller.in/components/button/css/button.css" async>		
+		<link rel="stylesheet" href="https://propeller.in/components/accordion/css/accordion.css" async>
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_principal.css" async>
 		<?php } ?>
 		
 		<?php if(is_singular('post')){ ?>			
@@ -187,8 +196,15 @@
 			
 			<?php } ?>
 		</style>
-		<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11452936391'); </script>
+		<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11452936391'); 
+        
+        // Google Ads Dynamic Number Insertion (DNI)
+        gtag('config', 'AW-11452936391/TEJiCOHh8_AcEMfhl9Uq', {
+            'phone_conversion_number': '(917) 828-3434'
+        });
+        </script>
 		<!-- Event snippet for Click to call website conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> <script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-11452936391/-Cn1COOJpOsbEMfhl9Uq', 'event_callback': callback }); return false; } </script>
+		<?php wp_head(); ?>
 	</head>
 	
 	<body <?php body_class(); ?>>

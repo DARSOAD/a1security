@@ -1,11 +1,11 @@
 <?php
 $tipo=$_POST['tipo'];
 	if($tipo === 'registrarse'){
-	    $empresa=$_POST['empresa'];
-		$telefono=$_POST['telefono'];
-		$correo=$_POST['correo'];
-		$nombre=$_POST['nombre'];
-		$comentarios=$_POST['comentarios'];
+	    $empresa=$_POST['company'];
+		$telefono=$_POST['phone'];
+		$correo=$_POST['email'];
+		$nombre=$_POST['firstname'];
+		$comentarios=$_POST['message'];
         $sender = 'a1securenyc@gmail.com';
         echo $correo;
         //$recipient = '$correo';
@@ -48,6 +48,7 @@ $tipo=$_POST['tipo'];
 		<p>Phone: '.$telefono.'</p>
 		<p>E-mail: '.$correo.'</p>
 		<p>Additional information: '.$comentarios.'</p>
+		<p><strong>Google Click ID (GCLID):</strong> ' . (isset($_POST['hs_google_click_id']) ? $_POST['hs_google_click_id'] : 'N/A') . '</p>
 		</div>
 		</body>
 		</html>';

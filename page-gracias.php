@@ -1,12 +1,12 @@
 <?php
 $tipo=$_POST['tipo'];
 	if($tipo === 'registrarse'){
-	    $empresa=$_POST['empresa'];
-		$telefono=$_POST['telefono'];
-		$correo=$_POST['correo'];
-		$nombre=$_POST['nombre'];
-		$comentarios=$_POST['comentarios'];
-        $sender = 'diego@a1securitynyc.com';
+	    $empresa=$_POST['company'];
+		$telefono=$_POST['phone'];
+		$correo=$_POST['email'];
+		$nombre=$_POST['firstname'];
+		$comentarios=$_POST['message'];
+        $sender = 'a1securenyc@gmail.com';
         echo $correo;
         //$recipient = '$correo';
         $recipient = 'mainteamagency@gmail.com';
@@ -43,11 +43,12 @@ $tipo=$_POST['tipo'];
 		<h1> Datos del cliente: </h1>
 		</div>
 		<div id="cuerpo">
-		<p>Name: '.$nombre.'</p>
-		<p>Company: '.$empresa.'</p>
-		<p>Phone: '.$telefono.'</p>
-		<p>E-mail: '.$correo.'</p>
-		<p>Additional information: '.$comentarios.'</p>
+		<p>Nombre: '.$nombre.'</p>
+		<p>Empresa: '.$empresa.'</p>
+		<p>Telefono: '.$telefono.'</p>
+		<p>Correo: '.$correo.'</p>
+		<p>Comentarios: '.$comentarios.'</p>
+		<p><strong>Google Click ID (GCLID):</strong> ' . (isset($_POST['hs_google_click_id']) ? $_POST['hs_google_click_id'] : 'N/A') . '</p>
 		</div>
 		</body>
 		</html>';

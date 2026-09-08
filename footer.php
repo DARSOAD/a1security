@@ -114,7 +114,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/propellertextfield.js" async></script>
 <!-------------------FORMULARIO JS---------------->
 <!-------------------CARRO FOOTER JS---------------->
-<script src="<?php echo get_template_directory_uri(); ?>/jscarro/main.js" async></script>
+	<!-- <script src="<?php echo get_template_directory_uri(); ?>/jscarro/main.js" async></script> -->
 <!-------------------CARRO FOOTER JS---------------->
 <!-------------------CARRUSEL JS---------------->
 <!-------------------También necesita del Jquery---------------->
@@ -367,6 +367,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
+<script>
+// Captura y persistencia de GCLID para Google Ads (Campañas)
+document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const gclid = urlParams.get('gclid');
+    
+    // Guardar en LocalStorage si existe en la URL
+    if (gclid) {
+        localStorage.setItem('google_gclid', gclid);
+    }
+    
+    // Inyectarlo en el campo oculto si existe el formulario
+    const storedGclid = localStorage.getItem('google_gclid');
+    const gclidInput = document.getElementById('gclid_field');
+    
+    if (storedGclid && gclidInput) {
+        gclidInput.value = storedGclid;
+    }
+});
+</script>
+<?php wp_footer(); ?>
 </body>
 
 </html>

@@ -145,6 +145,7 @@ get_header(); ?>
 	<!-------------------FORMULARIO PASOS---------------->
 	<form id="theForm" class="simform" action="<?php echo get_site_url(); ?>/?page_id=33" method="post" accept-charset="UTF-8" autocomplete="off">
 		<input name="tipo" type="hidden" value="registrarse">
+		<input type="hidden" name="hs_google_click_id" id="gclid_field" value="">
 		<div class="simform-inner">
 			<ol class="questions">
 				<li class="current">

@@ -274,17 +274,17 @@ document.addEventListener('DOMContentLoaded', function() {
     <h3 style="color: #fff; font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300; font-size: 28px; margin-bottom: 10px;">INVISIBLE HANDOFFS, VISIBLE RESULTS.</h3>
     <p style="color: #ccc; font-family: 'Lato', sans-serif; font-size: 18px; margin-bottom: 10px;">We manage the transition seamlessly. Let's get started.</p>
     <style>
-        .classic-form { max-width: 500px; margin: 20px auto 0; padding: 35px 30px; background: rgba(0,0,0,0.85); border-radius: 10px; border: 1px solid #bc9e52; }
-        .classic-form .form-group { margin-bottom: 18px; text-align: left; }
-        .classic-form label { display: block; color: #ccc; font-family: 'Montserrat', sans-serif; margin-bottom: 6px; font-size: 14px; font-weight: 400; }
-        .classic-form input, .classic-form textarea { width: 100%; padding: 12px; border: 1px solid #444; background: #1a1a1a; color: #fff; border-radius: 5px; font-family: 'Lato', sans-serif; font-size: 15px; box-sizing: border-box; }
-        .classic-form input:focus, .classic-form textarea:focus { outline: none; border-color: #bc9e52; }
-        .classic-form .classic-submit { background: transparent; color: #bc9e52; font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300; border: 2px solid #bc9e52; padding: 14px 30px; border-radius: 15px; font-size: 17px; cursor: pointer; width: 100%; transition: all 0.3s ease-in-out; margin-top: 5px; }
-        .classic-form .classic-submit:hover { background: #bc9e52; color: #000; }
+        .classic-form { max-width: 500px; margin: 40px auto; background: transparent; }
+        .classic-form .form-group { margin-bottom: 20px; text-align: left; }
+        .classic-form label { display: none; } /* Ocultar labels visualmente, usaremos placeholders */
+        .classic-form input, .classic-form textarea { width: 100%; padding: 15px 5px; border: none; border-bottom: 1px solid rgba(255,255,255,0.4); background: transparent; color: #fff; font-family: 'Lato', sans-serif; font-size: 16px; box-sizing: border-box; border-radius: 0; transition: border-color 0.3s; }
+        .classic-form input::placeholder, .classic-form textarea::placeholder { color: rgba(255,255,255,0.7); text-transform: uppercase; font-size: 13px; letter-spacing: 1px; }
+        .classic-form input:focus, .classic-form textarea:focus { outline: none; border-bottom-color: #bc9e52; }
+        .classic-form .classic-submit { background: transparent; color: #fff; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; border: 1px solid #fff; padding: 18px 50px; border-radius: 40px; font-size: 14px; cursor: pointer; width: auto; display: inline-block; transition: all 0.3s ease-in-out; margin-top: 20px; }
+        .classic-form .classic-submit:hover { background: #fff; color: #000; border-color: #fff; }
         @media (max-width: 600px) {
-            .classic-form { padding: 25px 20px; margin: 15px 15px 0; }
-            .classic-form .form-group { margin-bottom: 14px; }
-            .classic-form input, .classic-form textarea { padding: 10px; font-size: 14px; }
+            .classic-form { padding: 0 20px; }
+            .classic-form .classic-submit { width: 100%; padding: 15px 20px; }
         }
     </style>
     <form id="theForm" class="classic-form" action="<?php echo get_site_url(); ?>/?page_id=33" method="post" accept-charset="UTF-8" autocomplete="off">
@@ -292,23 +292,23 @@ document.addEventListener('DOMContentLoaded', function() {
         <input type="hidden" name="hs_google_click_id" id="gclid_field" value="">
         <div class="form-group">
             <label for="c1">Company / Building Name</label>
-            <input id="c1" name="company" type="text" required placeholder="e.g. Park Avenue Tower">
+            <input id="c1" name="company" type="text" required placeholder="COMPANY / BUILDING NAME *">
         </div>
         <div class="form-group">
             <label for="c2">Phone number</label>
-            <input id="c2" name="phone" type="tel" required placeholder="(212) 555-0123">
+            <input id="c2" name="phone" type="tel" required placeholder="PHONE NUMBER *">
         </div>
         <div class="form-group">
             <label for="c3">Work Email</label>
-            <input id="c3" name="email" type="email" required placeholder="you@company.com">
+            <input id="c3" name="email" type="email" required placeholder="WORK EMAIL *">
         </div>
         <div class="form-group">
             <label for="c4">Your Name</label>
-            <input id="c4" name="firstname" type="text" required placeholder="John Smith">
+            <input id="c4" name="firstname" type="text" required placeholder="YOUR NAME *">
         </div>
         <div class="form-group">
-            <label for="c6">Additional information (Optional)</label>
-            <textarea id="c6" name="message" rows="2" placeholder="Tell us about your building or security needs..."></textarea>
+            <label for="c6">Additional information</label>
+            <textarea id="c6" name="message" rows="2" placeholder="HOW CAN WE HELP YOU?"></textarea>
         </div>
         <button class="classic-submit" type="submit">Get a Free Consultation</button>
     </form>

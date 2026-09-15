@@ -169,7 +169,21 @@ $tipo=$_POST['tipo'];
 	}
 </style>
 <!---------------------------------------SMART LOOK------------------->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'AW-11452936391');
+
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11452936391/qacnCOqnoPMcEMfhl9Uq',
+      'value': 1.0,
+      'currency': 'USD'
+  });
+</script>
 </head>
 <body>
 <h1>THANK YOU FOR CONTACTING US <br> Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at a1securenyc@gmail.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</h1>

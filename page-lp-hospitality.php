@@ -315,38 +315,48 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="bloque3" class="banner-full-screen" id="lp-form">
     <h3 id="titulobloque3" class="letra27pt-pc letra5-5pt-mv tipografiaPuno negrillaTres centrado">ZERO OPERATIONAL DOWNTIME.</h3>
     <p id="subtitulobloque3" class="letra18pt-pc letra3pt-mv tipografiaPdos centrado">Switching providers shouldn't disrupt your guests. Let's get started.</p>
-    <form id="theForm" class="simform" action="<?php echo get_site_url(); ?>/?page_id=33" method="post" accept-charset="UTF-8" autocomplete="off">
+    <style>
+        .classic-form { max-width: 600px; margin: 40px auto; padding: 40px; background: rgba(0,0,0,0.8); border-radius: 10px; border: 1px solid #bc9e52; }
+        .classic-form .form-group { margin-bottom: 25px; text-align: left; }
+        .classic-form label { display: block; color: #fff; font-family: 'Montserrat', sans-serif; margin-bottom: 10px; font-size: 16px; font-weight: 300; }
+        .classic-form input, .classic-form textarea { width: 100%; padding: 15px; border: 1px solid #555; background: #222; color: #fff; border-radius: 5px; font-family: 'Lato', sans-serif; font-size: 16px; box-sizing: border-box; }
+        .classic-form input:focus, .classic-form textarea:focus { outline: none; border-color: #bc9e52; }
+        .classic-form .classic-submit { background: transparent; color: #bc9e52; font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300; border: 2px solid #bc9e52; padding: 15px 30px; border-radius: 15px; font-size: 18px; cursor: pointer; width: 100%; transition: all 0.3s ease-in-out; }
+        .classic-form .classic-submit:hover { background: #bc9e52; color: #000; }
+    </style>
+    <form id="theForm" class="classic-form" action="<?php echo get_site_url(); ?>/?page_id=33" method="post" accept-charset="UTF-8" autocomplete="off">
         <input name="tipo" type="hidden" value="registrarse">
         <input type="hidden" name="hs_google_click_id" id="gclid_field" value="">
-        <div class="simform-inner">
-            <ol class="questions">
-                <li class="current"><span><label for="q1">Venue / Company name</label></span><input id="q1" name="company" type="text"></li>
-                <li><span><label for="q2">Phone number</label></span><input id="q2" name="phone" type="text"></li>
-                <li><span><label for="q3">Work Email</label></span><input id="q3" name="email" type="text"></li>
-                <li><span><label for="q4">Your Name</label></span><input id="q4" name="firstname" type="text"></li>
-                <li><span><label for="q6">Additional information</label></span><input id="q6" name="message" type="text"></li>
-            </ol>
-            <button class="submit" type="submit">Submit</button>
-            <div class="controls">
-                <button class="next show"></button>
-                <div class="progress"></div>
-                <span class="number"><span class="number-current">1</span><span class="number-total">5</span></span>
-                <span class="error-message"></span>
-            </div>
+        
+        <div class="form-group">
+            <label for="q1">Venue / Company name</label>
+            <input id="q1" name="company" type="text" required>
         </div>
-        <span class="final-message"></span>
+        <div class="form-group">
+            <label for="q2">Phone number</label>
+            <input id="q2" name="phone" type="tel" required>
+        </div>
+        <div class="form-group">
+            <label for="q3">Work Email</label>
+            <input id="q3" name="email" type="email" required>
+        </div>
+        <div class="form-group">
+            <label for="q4">Your Name</label>
+            <input id="q4" name="firstname" type="text" required>
+        </div>
+        <div class="form-group">
+            <label for="q6">Additional information (Optional)</label>
+            <textarea id="q6" name="message" rows="3"></textarea>
+        </div>
+        <button class="classic-submit" type="submit">Submit</button>
     </form>
 </div>
 
-<script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.custom.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/classie.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/stepsForm.js"></script>
 <script>
     var theForm = document.getElementById('theForm');
     if(theForm) {
-        // Interceptar el envío nativo en caso de que le den clic al botón "Submit" directamente
         theForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Detener el envío temporalmente
+            e.preventDefault();
             console.log('✅ Evento "submit" nativo interceptado (Hospitality)');
             
             var email = theForm.querySelector('[name="email"]').value;
@@ -362,27 +372,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }]);
             _hsq.push(["trackPageView"]);
 
-            // Reanudar el envío después de dar tiempo a HubSpot
+            var btn = theForm.querySelector('.classic-submit');
+            btn.innerHTML = 'Sending...';
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
+
             setTimeout(function() {
                 theForm.submit();
             }, 1000);
-        });
-
-        // Configuración original de stepsForm
-        new stepsForm(theForm, {
-            onSubmit: function(form) {
-                console.log('✅ onSubmit de stepsForm disparado (Hospitality)');
-                classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
-                
-                // Simular el submit para que nuestro event listener nativo lo capture
-                theForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
-
-                var messageEl = theForm.querySelector('.final-message');
-                if(messageEl) {
-                    messageEl.innerHTML = 'Thank you! We will be in touch shortly.';
-                    classie.addClass(messageEl, 'show');
-                }
-            }
         });
     }
 </script>

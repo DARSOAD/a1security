@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div></div>
 
 <!-- BLOCK 4: Form -->
-<div id="lp-form" style="background: #111; padding: 60px 20px; text-align: center;">
+<div id="bloque3" class="banner-full-screen" style="height: auto !important; padding: 60px 20px; text-align: center;">
     <h3 style="color: #fff; font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300; font-size: 28px; margin-bottom: 10px;">INVISIBLE HANDOFFS, VISIBLE RESULTS.</h3>
     <p style="color: #ccc; font-family: 'Lato', sans-serif; font-size: 18px; margin-bottom: 10px;">We manage the transition seamlessly. Let's get started.</p>
     <style>

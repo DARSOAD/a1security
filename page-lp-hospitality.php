@@ -311,44 +311,48 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 
-<!-- BLOCK 4: Form — mismo #bloque3 con imagen de fondo igual que la homepage -->
-<div id="bloque3" class="banner-full-screen" id="lp-form">
-    <h3 id="titulobloque3" class="letra27pt-pc letra5-5pt-mv tipografiaPuno negrillaTres centrado">ZERO OPERATIONAL DOWNTIME.</h3>
-    <p id="subtitulobloque3" class="letra18pt-pc letra3pt-mv tipografiaPdos centrado">Switching providers shouldn't disrupt your guests. Let's get started.</p>
+<!-- BLOCK 4: Form -->
+<div id="lp-form" style="background: #111; padding: 60px 20px; text-align: center;">
+    <h3 style="color: #fff; font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300; font-size: 28px; margin-bottom: 10px;">ZERO OPERATIONAL DOWNTIME.</h3>
+    <p style="color: #ccc; font-family: 'Lato', sans-serif; font-size: 18px; margin-bottom: 10px;">Switching providers shouldn't disrupt your guests. Let's get started.</p>
     <style>
-        .classic-form { max-width: 600px; margin: 40px auto; padding: 40px; background: rgba(0,0,0,0.8); border-radius: 10px; border: 1px solid #bc9e52; }
-        .classic-form .form-group { margin-bottom: 25px; text-align: left; }
-        .classic-form label { display: block; color: #fff; font-family: 'Montserrat', sans-serif; margin-bottom: 10px; font-size: 16px; font-weight: 300; }
-        .classic-form input, .classic-form textarea { width: 100%; padding: 15px; border: 1px solid #555; background: #222; color: #fff; border-radius: 5px; font-family: 'Lato', sans-serif; font-size: 16px; box-sizing: border-box; }
+        .classic-form { max-width: 500px; margin: 20px auto 0; padding: 35px 30px; background: rgba(0,0,0,0.85); border-radius: 10px; border: 1px solid #bc9e52; }
+        .classic-form .form-group { margin-bottom: 18px; text-align: left; }
+        .classic-form label { display: block; color: #ccc; font-family: 'Montserrat', sans-serif; margin-bottom: 6px; font-size: 14px; font-weight: 400; }
+        .classic-form input, .classic-form textarea { width: 100%; padding: 12px; border: 1px solid #444; background: #1a1a1a; color: #fff; border-radius: 5px; font-family: 'Lato', sans-serif; font-size: 15px; box-sizing: border-box; }
         .classic-form input:focus, .classic-form textarea:focus { outline: none; border-color: #bc9e52; }
-        .classic-form .classic-submit { background: transparent; color: #bc9e52; font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300; border: 2px solid #bc9e52; padding: 15px 30px; border-radius: 15px; font-size: 18px; cursor: pointer; width: 100%; transition: all 0.3s ease-in-out; }
+        .classic-form .classic-submit { background: transparent; color: #bc9e52; font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300; border: 2px solid #bc9e52; padding: 14px 30px; border-radius: 15px; font-size: 17px; cursor: pointer; width: 100%; transition: all 0.3s ease-in-out; margin-top: 5px; }
         .classic-form .classic-submit:hover { background: #bc9e52; color: #000; }
+        @media (max-width: 600px) {
+            .classic-form { padding: 25px 20px; margin: 15px 15px 0; }
+            .classic-form .form-group { margin-bottom: 14px; }
+            .classic-form input, .classic-form textarea { padding: 10px; font-size: 14px; }
+        }
     </style>
     <form id="theForm" class="classic-form" action="<?php echo get_site_url(); ?>/?page_id=33" method="post" accept-charset="UTF-8" autocomplete="off">
         <input name="tipo" type="hidden" value="registrarse">
         <input type="hidden" name="hs_google_click_id" id="gclid_field" value="">
-        
         <div class="form-group">
             <label for="q1">Venue / Company name</label>
-            <input id="q1" name="company" type="text" required>
+            <input id="q1" name="company" type="text" required placeholder="e.g. The Rooftop Lounge">
         </div>
         <div class="form-group">
             <label for="q2">Phone number</label>
-            <input id="q2" name="phone" type="tel" required>
+            <input id="q2" name="phone" type="tel" required placeholder="(212) 555-0123">
         </div>
         <div class="form-group">
             <label for="q3">Work Email</label>
-            <input id="q3" name="email" type="email" required>
+            <input id="q3" name="email" type="email" required placeholder="you@company.com">
         </div>
         <div class="form-group">
             <label for="q4">Your Name</label>
-            <input id="q4" name="firstname" type="text" required>
+            <input id="q4" name="firstname" type="text" required placeholder="John Smith">
         </div>
         <div class="form-group">
             <label for="q6">Additional information (Optional)</label>
-            <textarea id="q6" name="message" rows="3"></textarea>
+            <textarea id="q6" name="message" rows="2" placeholder="Tell us about your venue or security needs..."></textarea>
         </div>
-        <button class="classic-submit" type="submit">Submit</button>
+        <button class="classic-submit" type="submit">Get a Free Consultation</button>
     </form>
 </div>
 

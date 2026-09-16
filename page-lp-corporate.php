@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2>UNCOMPROMISING SECURITY</h2>
 <h1 id='segundoReglonTitulo'>FOR CLASS A <br> PROPERTIES</h1>
 <h3 id='tercerReglonTitulo'>FDNY CERTIFIED. MANHATTAN TRUSTED.</h3>
-<a href="#lp-form" id="getInTouchButton" class="btn-hero">SCHEDULE A PROPERTY ASSESSMENT</a>
+<a href="#bloque3" id="getInTouchButton" class="btn-hero">SCHEDULE A PROPERTY ASSESSMENT</a>
 
 </div></div>
 

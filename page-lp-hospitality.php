@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2>SECURITY IS</h2>
 <h1 id='segundoReglonTitulo'>5-STAR <br> HOSPITALITY</h1>
 <h3 id='tercerReglonTitulo'>PROTECTING YOUR GUESTS</h3>
-<a href="#lp-form" id="getInTouchButton" class="btn-hero">REQUEST A VENUE SECURITY AUDIT</a>
+<a href="#bloque3" id="getInTouchButton" class="btn-hero">REQUEST A VENUE SECURITY AUDIT</a>
 
 <!-- Cierra los dos divs que dejó abiertos menu.php: #bloque1 y container-fluid -->
 </div></div>

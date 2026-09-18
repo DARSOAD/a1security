@@ -318,30 +318,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var theForm = document.getElementById('theForm');
     if(theForm) {
         theForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('✅ Evento "submit" nativo interceptado (Corporate)');
-            
-            var email = theForm.querySelector('[name="email"]').value;
-            var nombre = theForm.querySelector('[name="firstname"]').value;
-            var empresa = theForm.querySelector('[name="company"]').value;
-            var telefono = theForm.querySelector('[name="phone"]').value;
-            var gclid = theForm.querySelector('#gclid_field').value;
-
-            var _hsq = window._hsq = window._hsq || [];
-            console.log('📡 Empujando datos a _hsq:', { email: email, hs_google_click_id: gclid });
-            _hsq.push(["identify", {
-                email: email, firstname: nombre, company: empresa, phone: telefono, hs_google_click_id: gclid
-            }]);
-            _hsq.push(["trackPageView"]);
-
             var btn = theForm.querySelector('.classic-submit');
-            btn.innerHTML = 'Sending...';
-            btn.style.opacity = '0.7';
-            btn.disabled = true;
-
-            setTimeout(function() {
-                theForm.submit();
-            }, 1000);
+            if (btn) {
+                btn.innerHTML = 'Sending...';
+                btn.style.opacity = '0.7';
+            }
         });
     }
 </script>

@@ -184,6 +184,22 @@ $tipo=$_POST['tipo'];
       'currency': 'USD'
   });
 </script>
+
+<!-- HubSpot Server-Side Injection -->
+<?php if($tipo === 'registrarse'): ?>
+<script>
+  var _hsq = window._hsq = window._hsq || [];
+  _hsq.push(["identify", {
+      email: "<?php echo esc_js($correo); ?>",
+      firstname: "<?php echo esc_js($nombre); ?>",
+      company: "<?php echo esc_js($empresa); ?>",
+      phone: "<?php echo esc_js($telefono); ?>",
+      hs_google_click_id: "<?php echo esc_js($_POST['hs_google_click_id']); ?>"
+  }]);
+  _hsq.push(["trackPageView"]);
+</script>
+<?php endif; ?>
+
 </head>
 <body>
 <h1>THANK YOU FOR CONTACTING US <br> Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at a1securenyc@gmail.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</h1>

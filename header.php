@@ -1,9 +1,7 @@
 <!doctype html>
 <html lang="en-us" class="js csstransitions">
 	<head >
-
-
-
+		<meta name="google-site-verification" content="OoMALvYPWrKlIhfYrePRN4DeKtpnA7isj4wOwIkQisw" />
 		<meta charset="utf-8">
 		<meta name="author" content="Diego">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">

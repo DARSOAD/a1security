@@ -16,7 +16,15 @@ get_header();
        ============================================================ */
 
     /* --- RESET: Ocultar el nav/menu global del tema para esta LP --- */
-    #menupc, .main-nav, .menumv, .checkout.btn { display: none !important; }
+    #menupc, .main-nav, .menumv, .checkout.btn,
+    .morph-dropdown-wrapper, .logo_pc, .nav-trigger,
+    .cd-header > a, .cd-header > nav { display: none !important; }
+    /* Colapsar el contenedor del menú para eliminar espacio blanco */
+    .container-fluid, #bloque1.cd-header { 
+        height: 0 !important; min-height: 0 !important; max-height: 0 !important;
+        padding: 0 !important; margin: 0 !important; overflow: hidden !important;
+        background: none !important;
+    }
 
     /* --- STICKY CALL BAR (visible siempre, top fijo) --- */
     .ep-sticky-bar {
@@ -46,9 +54,9 @@ get_header();
     .ep-hero {
         margin-top: 55px; /* compensar sticky bar */
         background: #0a0a0a;
-        background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/fondos utiles/Fondo completoPC.png");
+        background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/ep-hero-bg.png");
         background-size: cover; background-position: center top;
-        min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        min-height: 100dvh; display: flex; align-items: center; justify-content: center;
         position: relative; text-align: center; padding: 60px 20px;
     }
     .ep-hero::before {
@@ -77,6 +85,7 @@ get_header();
         padding: 20px 35px; border-radius: 50px; letter-spacing: 1px;
         transition: all 0.3s ease; box-shadow: 0 0 30px rgba(188,158,82,0.3);
         text-transform: uppercase;
+        margin-top: 15px !important; margin-bottom: 25px !important;
     }
     .ep-cta-primary:hover { background: #d4b96a; box-shadow: 0 0 50px rgba(188,158,82,0.5); transform: scale(1.03); }
 
@@ -87,7 +96,7 @@ get_header();
 
     /* Secondary CTA */
     .ep-cta-secondary {
-        display: inline-block; margin-top: 18px;
+        display: inline-block; margin-top: 15px !important; margin-bottom: 25px !important;
         color: #fff; text-decoration: none; font-family: 'Montserrat', sans-serif;
         font-size: 14px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
         border: 1px solid rgba(255,255,255,0.4); padding: 14px 30px; border-radius: 40px;
@@ -130,10 +139,12 @@ get_header();
         display: flex; gap: 18px; margin-bottom: 35px; align-items: flex-start;
     }
     .ep-bullets .ep-bullet-icon {
-        flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%;
-        background: rgba(188,158,82,0.12); border: 1px solid rgba(188,158,82,0.3);
+        flex-shrink: 0; width: 35px; height: 35px;
         display: flex; align-items: center; justify-content: center;
-        font-size: 20px;
+        margin-top: 2px;
+    }
+    .ep-bullets .ep-bullet-icon img {
+        width: 100%; height: auto; opacity: 0.9;
     }
     .ep-bullets h3 {
         font-family: 'Montserrat', sans-serif; font-weight: 600;
@@ -154,7 +165,9 @@ get_header();
         transition: border-color 0.3s, transform 0.3s;
     }
     .ep-card:hover { border-color: #bc9e52; transform: translateY(-4px); }
-    .ep-card-icon { font-size: 36px; margin-bottom: 18px; }
+    .ep-card-icon {
+        width: 40px; height: 3px; background: #bc9e52; margin: 0 auto 20px;
+    }
     .ep-card h3 {
         font-family: 'Montserrat', sans-serif; font-weight: 600;
         color: #bc9e52; font-size: 0.95rem; text-transform: uppercase;
@@ -257,9 +270,9 @@ get_header();
      STICKY CALL BAR
      ============================================================ -->
 <div class="ep-sticky-bar">
-    <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/logoblanco.png" alt="A1 Security" class="ep-logo">
+    <img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO.png" alt="A1 Security" class="ep-logo" style="filter: brightness(0) invert(1);">
     <a href="tel:+19178283434" onclick="return gtag_report_conversion('tel:917-828-3434');" class="ep-call-btn">
-        📞 CALL 24/7: (917) 828-3434
+        CALL 24/7: (917) 828-3434
     </a>
 </div>
 
@@ -275,7 +288,7 @@ get_header();
         <p class="ep-sub">Elite, highly vetted protection details ready for rapid deployment. Complete discretion and absolute security for executives, high-profile individuals, and emergency escorts.</p>
 
         <a href="tel:+19178283434" onclick="return gtag_report_conversion('tel:917-828-3434');" class="ep-cta-primary">
-            📞 CALL 24/7 DISPATCH: (917) 828-3434
+            CALL 24/7 DISPATCH: (917) 828-3434
         </a>
         <br>
         <a href="#ep-callback-form" class="ep-cta-secondary">Request Immediate Callback</a>
@@ -296,21 +309,21 @@ get_header();
         <h2>Uncompromising Security. Absolute Discretion.</h2>
         <ul class="ep-bullets">
             <li>
-                <div class="ep-bullet-icon">⚡</div>
+                <div class="ep-bullet-icon"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO_ESCUDO.png" alt="A1 Security"></div>
                 <div>
                     <h3>Rapid Response</h3>
                     <p>Immediate deployment of armed or unarmed protection details across the New York metropolitan area.</p>
                 </div>
             </li>
             <li>
-                <div class="ep-bullet-icon">🛡️</div>
+                <div class="ep-bullet-icon"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO_ESCUDO.png" alt="A1 Security"></div>
                 <div>
                     <h3>Elite Personnel</h3>
                     <p>Our operatives are rigorously vetted, highly trained in de-escalation, and operate with high emotional intelligence.</p>
                 </div>
             </li>
             <li>
-                <div class="ep-bullet-icon">👁️</div>
+                <div class="ep-bullet-icon"><img src="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/LOGO_ESCUDO.png" alt="A1 Security"></div>
                 <div>
                     <h3>Low-Profile Operations</h3>
                     <p>We blend seamlessly into your environment, providing impenetrable security without drawing unwanted attention.</p>
@@ -326,7 +339,7 @@ get_header();
 <div class="ep-mid-cta">
     <p>Every Minute Matters. Speak With Our Team Now.</p>
     <a href="tel:+19178283434" onclick="return gtag_report_conversion('tel:917-828-3434');">
-        📞 (917) 828-3434
+        (917) 828-3434
     </a>
 </div>
 
@@ -338,17 +351,17 @@ get_header();
         <h2>Specialized Urgent Services</h2>
         <div class="ep-cards">
             <div class="ep-card">
-                <div class="ep-card-icon">🏢</div>
+                <div class="ep-card-icon"></div>
                 <h3>Executive & VIP Protection</h3>
                 <p>Tailored security details for CEOs, celebrities, and high-net-worth individuals.</p>
             </div>
             <div class="ep-card">
-                <div class="ep-card-icon">⚖️</div>
+                <div class="ep-card-icon"></div>
                 <h3>Court & Legal Escorts</h3>
                 <p>Safe, secure, and discreet transportation and physical protection during legal proceedings.</p>
             </div>
             <div class="ep-card">
-                <div class="ep-card-icon">🚨</div>
+                <div class="ep-card-icon"></div>
                 <h3>High-Threat Mitigation</h3>
                 <p>Immediate physical presence for individuals facing active threats, stalking, or corporate disputes.</p>
             </div>

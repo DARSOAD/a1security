@@ -103,9 +103,7 @@
 		<!-------------------MENU movil CSS---------------->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_mv.css" async>	
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" async>
-		<link rel="stylesheet" href="https://propeller.in/components/icons/css/google-icons.css" async>	 
-		<link rel="stylesheet" href="https://propeller.in/components/button/css/button.css" async>		
-		<link rel="stylesheet" href="https://propeller.in/components/accordion/css/accordion.css" async>
+
 		<!-------------------MENU movil CSS---------------->		
 		<!-------------------MENU---------------->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_principal.css" async>
@@ -122,9 +120,7 @@
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/logo.css" async>
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_mv.css" async>	
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" async>
-		<link rel="stylesheet" href="https://propeller.in/components/icons/css/google-icons.css" async>	 
-		<link rel="stylesheet" href="https://propeller.in/components/button/css/button.css" async>		
-		<link rel="stylesheet" href="https://propeller.in/components/accordion/css/accordion.css" async>
+
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_principal.css" async>
 		<?php } ?>
 		
@@ -140,9 +136,7 @@
 		<!-------------------MENU movil CSS---------------->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_mv.css" async>	
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" async>
-		<link rel="stylesheet" href="https://propeller.in/components/icons/css/google-icons.css" async>	 
-		<link rel="stylesheet" href="https://propeller.in/components/button/css/button.css" async>		
-		<link rel="stylesheet" href="https://propeller.in/components/accordion/css/accordion.css" async>
+
 		<!-------------------MENU movil CSS---------------->		
 		<!-------------------MENU---------------->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menu_principal.css" async>

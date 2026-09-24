@@ -1,10 +1,5 @@
 @charset "utf-8";
-/* CSS Document */
-/*!
- * Propeller v1.1.0 (http://propeller.in): textfield.css
- * Copyright 2016-2017 Digicorp, Inc.
- * Licensed under MIT (http://propeller.in/LICENSE)
- */
+
 
 /* Propeller css for text fields */
 .pmd-textfield-focused{ transition-duration: 0.2s; -ms-transition-duration: 0.2s; -webkit-transition-duration: 0.2s; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); -ms-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);}

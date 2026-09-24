@@ -111,7 +111,7 @@
 <!-------------------FORMULARIO PASOS JS---------------->
 <!-------------------FORMULARIO JS---------------->
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/propellertextfield.js" async></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/pmd-textfield.js" async></script>
 <!-------------------FORMULARIO JS---------------->
 <!-------------------CARRO FOOTER JS---------------->
 	<!-- <script src="<?php echo get_template_directory_uri(); ?>/jscarro/main.js" async></script> -->
@@ -268,7 +268,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/classie.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/stepsForm.js"></script>
 	<!-------------------FORMULARIO PASOS JS---------------->
-	<script src="<?php echo get_template_directory_uri(); ?>/js/propellertextfield.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/pmd-textfield.js"></script>
 	<!-------------------FORMULARIO JS---------------->
 	<!-------------------CARRUSEL JS---------------->
 	<!-------------------FORMULARIO PASOS---------------->

@@ -105,7 +105,7 @@ get_header('catalogo');
 </script>
 <!---------------------------------------MENU DESLEGABLE DERECHA------------------->
 <!-------------------FORMULARIO JS---------------->
-<script src="<?php echo get_template_directory_uri(); ?>/js/propellertextfield.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/pmd-textfield.js"></script>
 <!-------------------FORMULARIO JS---------------->
 <script>
 	if( !window.jQuery ) document.write('<script src="<?php echo get_template_directory_uri(); ?>/jscool/jquery-3.0.0.min.js"><\/script>');

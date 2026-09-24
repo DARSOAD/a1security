@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-us" class="no-js">
 <head>
+	<meta name="google-site-verification" content="OoMALvYPWrKlIhfYrePRN4DeKtpnA7isj4wOwIkQisw" />
 
 
 	<meta charset="UTF-8">

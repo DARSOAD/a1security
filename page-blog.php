@@ -12,9 +12,17 @@ get_header('page'); ?>
         
         <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; margin-top: 20px;">
             <?php 
-            if (have_posts()) :
-                while (have_posts()) :
-                    the_post();	
+            $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 10,
+                'paged' => $paged
+            );
+            $blog_query = new WP_Query($args);
+
+            if ($blog_query->have_posts()) :
+                while ($blog_query->have_posts()) :
+                    $blog_query->the_post();	
                     ?>
                     <article class="tarjeta-blog" style="background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
                         <?php if (has_post_thumbnail()) : ?>
@@ -51,12 +59,18 @@ get_header('page'); ?>
                 <div class="paginacion" style="margin-top: 50px; text-align: center;">
                     <?php
                     // Pagination
-                    the_posts_pagination(array(
-                        'mid_size'  => 2,
-                        'prev_text' => '&laquo; Prev',
-                        'next_text' => 'Next &raquo;',
-                        'screen_reader_text' => ' '
-                    ));
+                    $total_pages = $blog_query->max_num_pages;
+                    if ($total_pages > 1){
+                        $current_page = max(1, get_query_var('paged'));
+                        echo paginate_links(array(
+                            'base' => get_pagenum_link(1) . '%_%',
+                            'format' => 'page/%#%',
+                            'current' => $current_page,
+                            'total' => $total_pages,
+                            'prev_text'    => __('« Prev'),
+                            'next_text'    => __('Next »'),
+                        ));
+                    }
                     ?>
                     <style>
                         .paginacion .nav-links { display: flex; justify-content: center; gap: 10px; }
@@ -65,6 +79,7 @@ get_header('page'); ?>
                     </style>
                 </div>
             <?php
+                wp_reset_postdata();
             else :
                 echo '<p style="text-align:center;">No posts found.</p>';
                 echo '</div>';

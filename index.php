@@ -145,7 +145,7 @@ get_header(); ?>
 	<h1 class="tituloServicio letra43pt-pc letra5pt-mv">Our security services</h1>
 
 	<?php
-	query_posts('post_type=post');
+	query_posts('post_type=post&category_name=services');
 	while (have_posts()) : the_post(); ?>
 		<div class="service">
 			<div class="service-header">
@@ -163,7 +163,8 @@ get_header(); ?>
 				</div>
 			</div>
 		</div>
-	<?php endwhile; ?>
+	<?php endwhile; 
+	wp_reset_query(); ?>
 </div>
 
 <div id="bloque3" class="banner-full-screen">

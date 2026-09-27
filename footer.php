@@ -34,13 +34,14 @@
 			<ul class="footerul">
 
 				<?php
-				query_posts('post_type=post');
+				query_posts('post_type=post&category_name=services');
 				while (have_posts()) : the_post(); ?>
 					<li>
 						<a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a>
 					</li>
 
-				<?php endwhile; ?>
+				<?php endwhile; 
+				wp_reset_query(); ?>
 
 			</ul>
 		</div>

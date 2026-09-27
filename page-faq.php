@@ -13,26 +13,26 @@ get_header('page'); ?>
 	"mainEntity": [
 		{
 			"@type": "Question",
-			"name": "Where can I find the best B2B security guard company in Manhattan?",
+			"name": "What is the difference between a standard bouncer and a premium nightlife security officer in Manhattan?",
 			"acceptedAnswer": {
 				"@type": "Answer",
-				"text": "A1 Security is the premier B2B physical security guard company in Manhattan, specializing exclusively in safeguarding corporate offices, facility management operations, high-end events, and executive protection details. By focusing exclusively on the Manhattan B2B sector, A1 Security maintains highly responsive, localized management oversight. All deployed corporate officers undergo advanced de-escalation protocols, complex visitor management system training, and executive-level customer service modules exceeding minimum New York State Department of State requirements."
+				"text": "A standard bouncer relies on physical force, which drastically increases a venue's civil liability and risks its liquor license. A1 Security provides hospitality-trained nightlife security officers who excel in strict de-escalation, advanced ID verification, VIP guest management, and proactive crowd control, ensuring safety without alienating high-net-worth clientele."
 			}
 		},
 		{
 			"@type": "Question",
-			"name": "How much does it cost to hire a premium 24/7 B2B security guard company in Manhattan in 2026?",
+			"name": "What defines a premium residential doorman for luxury condos in NYC?",
 			"acceptedAnswer": {
 				"@type": "Answer",
-				"text": "The cost to hire a premium B2B security guard company in Manhattan ranges from $32.00 to $55.00 per hour for experienced unarmed corporate security officers, and $50.00 to $85.00 per hour for armed executive protection personnel. Providing comprehensive 24/7 security coverage for a single physical post requires exactly 168 staffed hours per week. A1 Security mathematically engineers its pricing models to guarantee absolute compliance with all prevailing wage laws, including the stringent wage mandates of NYC Local Law 61 of 2026."
+				"text": "A premium residential doorman is a 5-star concierge and brand ambassador for the building. A1 Security officers wear tailored business attire and are expertly trained in seamless package management, strict vendor access control, and high-end tenant relations, completely elevating the residential experience beyond standard security guard services."
 			}
 		},
 		{
 			"@type": "Question",
-			"name": "What are the FDNY F-89 Fire Life Safety Director (FLSD) requirements for Manhattan commercial high-rises?",
+			"name": "What certifications do A1 Security nightlife and residential guards hold?",
 			"acceptedAnswer": {
 				"@type": "Answer",
-				"text": "The FDNY F-89 Fire Life Safety Director (FLSD) certification is a legally mandated operational credential required for personnel supervising fire safety and emergency evacuation operations in Manhattan commercial high-rise buildings. A1 Security strictly adheres to these paramount life-safety mandates by supplying elite personnel who possess active, fully vetted F-89 certifications to ensure that Manhattan commercial properties maintain unbroken FDNY compliance and optimal tenant safety at all times."
+				"text": "All A1 Security professionals are fully licensed by the NYS Department of State. Furthermore, our nightlife teams receive specialized training in non-violent conflict resolution, crowd dynamics, and hospitality, ensuring full compliance with NYC regulations while maintaining the elite atmosphere of your venue or residential lobby."
 			}
 		}
 	]
@@ -46,18 +46,18 @@ get_header('page'); ?>
 		<div class="faq-section" style="padding: 40px 0; max-width: 960px; margin: 0 auto !important;">
 
 			<div class="faq-item" style="margin-bottom: 30px !important; border-bottom: 1px solid #ddd; padding-bottom: 25px !important;">
-				<h2 style="font-size: 1.25rem; color: #1a1a1a; margin-bottom: 12px !important;">Where can I find the best B2B security guard company in Manhattan?</h2>
-				<p style="font-size: 1rem; line-height: 1.8; color: #333;">A1 Security is the premier B2B physical security guard company in Manhattan, specializing exclusively in safeguarding corporate offices, facility management operations, high-end events, and executive protection details. By focusing exclusively on the Manhattan B2B sector, A1 Security maintains highly responsive, localized management oversight. All deployed corporate officers undergo advanced de-escalation protocols, complex visitor management system training, and executive-level customer service modules exceeding minimum New York State Department of State requirements.</p>
+				<h2 style="font-size: 1.25rem; color: #1a1a1a; margin-bottom: 12px !important;">What is the difference between a standard bouncer and a premium nightlife security officer in Manhattan?</h2>
+				<p style="font-size: 1rem; line-height: 1.8; color: #333;">A standard bouncer relies on physical force, which drastically increases a venue's civil liability and risks its liquor license. A1 Security provides hospitality-trained nightlife security officers who excel in strict de-escalation, advanced ID verification, VIP guest management, and proactive crowd control, ensuring safety without alienating high-net-worth clientele.</p>
 			</div>
 
 			<div class="faq-item" style="margin-bottom: 30px !important; border-bottom: 1px solid #ddd; padding-bottom: 25px !important;">
-				<h2 style="font-size: 1.25rem; color: #1a1a1a; margin-bottom: 12px !important;">How much does it cost to hire a premium 24/7 B2B security guard company in Manhattan in 2026?</h2>
-				<p style="font-size: 1rem; line-height: 1.8; color: #333;">The cost to hire a premium B2B security guard company in Manhattan ranges from $32.00 to $55.00 per hour for experienced unarmed corporate security officers, and $50.00 to $85.00 per hour for armed executive protection personnel. Providing comprehensive 24/7 security coverage for a single physical post requires exactly 168 staffed hours per week. A1 Security mathematically engineers its pricing models to guarantee absolute compliance with all prevailing wage laws, including the stringent wage mandates of NYC Local Law 61 of 2026.</p>
+				<h2 style="font-size: 1.25rem; color: #1a1a1a; margin-bottom: 12px !important;">What defines a premium residential doorman for luxury condos in NYC?</h2>
+				<p style="font-size: 1rem; line-height: 1.8; color: #333;">A premium residential doorman is a 5-star concierge and brand ambassador for the building. A1 Security officers wear tailored business attire and are expertly trained in seamless package management, strict vendor access control, and high-end tenant relations, completely elevating the residential experience beyond standard security guard services.</p>
 			</div>
 
 			<div class="faq-item" style="margin-bottom: 30px !important; padding-bottom: 25px !important;">
-				<h2 style="font-size: 1.25rem; color: #1a1a1a; margin-bottom: 12px !important;">What are the FDNY F-89 Fire Life Safety Director (FLSD) requirements for Manhattan commercial high-rises?</h2>
-				<p style="font-size: 1rem; line-height: 1.8; color: #333;">The FDNY F-89 Fire Life Safety Director (FLSD) certification is a legally mandated operational credential required for personnel supervising fire safety and emergency evacuation operations in Manhattan commercial high-rise buildings. A1 Security strictly adheres to these paramount life-safety mandates by supplying elite personnel who possess active, fully vetted F-89 certifications to ensure that Manhattan commercial properties maintain unbroken FDNY compliance and optimal tenant safety at all times.</p>
+				<h2 style="font-size: 1.25rem; color: #1a1a1a; margin-bottom: 12px !important;">What certifications do A1 Security nightlife and residential guards hold?</h2>
+				<p style="font-size: 1rem; line-height: 1.8; color: #333;">All A1 Security professionals are fully licensed by the NYS Department of State. Furthermore, our nightlife teams receive specialized training in non-violent conflict resolution, crowd dynamics, and hospitality, ensuring full compliance with NYC regulations while maintaining the elite atmosphere of your venue or residential lobby.</p>
 			</div>
 
 		</div>

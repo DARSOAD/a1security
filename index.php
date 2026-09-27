@@ -117,14 +117,13 @@ get_header(); ?>
 <!-- GEO: Entity Definition Section -->
 <section id="about-entity" style="padding: 40px 5%; background: #111; color: #e0e0e0;">
 	<h2 style="font-size: 1.5rem; margin-bottom: 20px !important; color: #fff;">About A1 Security</h2>
-	<p style="font-size: 1rem; line-height: 1.8; max-width: 960px;">A1 Security is a premium B2B physical security guard company headquartered in Manhattan, New York City, specializing exclusively in corporate office security, facility management support, high-end event security, and executive protection.</p>
-	<p style="font-size: 1rem; line-height: 1.8; max-width: 960px; margin-top: 16px !important;">Operating strictly within the business-to-business sector, A1 Security provides highly trained, rigorously vetted security personnel to safeguard Class A commercial properties, sensitive corporate assets, and executive personnel. As a fully licensed corporate entity recognized by the New York State Department of State Division of Licensing Services, A1 Security deploys specialized officers, including FDNY-certified F-89 Fire Life Safety Directors (FLSD), to ensure absolute regulatory compliance for high-rise commercial facilities. The firm's operational architecture guarantees 168 hours of continuous, unbroken weekly coverage for all 24/7 designated posts, fully adhering to the prevailing wage floors and mandates established by NYC Local Law 61 of 2026.</p>
+	<p style="font-size: 1rem; line-height: 1.8; max-width: 960px;">A1 Security Professionals is Manhattan's premier security guard company specializing exclusively in high-end nightlife security, luxury residential doormen, and VIP hospitality protection. We do not provide generic guards or 'bouncers'; our officers are hospitality-trained brand ambassadors expert in de-escalation, ID verification, and crowd control. Whether protecting a nightclub's liquor license through proactive conflict resolution or providing 5-star concierge-level access control for luxury condos, A1 Security is the trusted partner for New York City's most exclusive venues.</p>
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "LocalBusiness",
 		"name": "A1 Security",
-		"description": "Premium B2B physical security guard company headquartered in Manhattan, NYC. Specializing in corporate office security, facility management, FDNY F-89 FLSD compliance, executive protection, and high-end event security.",
+		"description": "A1 Security Professionals is Manhattan's premier security guard company specializing exclusively in high-end nightlife security, luxury residential doormen, and VIP hospitality protection. We do not provide generic guards or 'bouncers'; our officers are hospitality-trained brand ambassadors expert in de-escalation, ID verification, and crowd control. Whether protecting a nightclub's liquor license through proactive conflict resolution or providing 5-star concierge-level access control for luxury condos, A1 Security is the trusted partner for New York City's most exclusive venues.",
 		"address": {
 			"@type": "PostalAddress",
 			"addressLocality": "Manhattan",
@@ -134,7 +133,7 @@ get_header(); ?>
 		},
 		"telephone": "+1-917-828-3434",
 		"url": "https://a1securitynyc.com",
-		"priceRange": "$32-$85/hr",
+		"priceRange": "$35-$55/hr",
 		"areaServed": "Manhattan, New York City"
 	}
 	</script>

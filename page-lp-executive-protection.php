@@ -15,12 +15,25 @@ get_header();
        Mobile-First | CRO Optimized | Premium Aesthetic
        ============================================================ */
 
+    /* Restore the rem scale expected by this landing after Bootstrap's 10px root. */
+    html { font-size: 100%; }
+    body { margin: 0; background: #0a0a0a; }
+    :root {
+        --ep-content-width: 1200px;
+        --ep-gutter: clamp(20px, 4vw, 60px);
+        --ep-bar-height: 70px;
+    }
+    .ep-hero, .ep-section, .ep-form-section, .ep-sticky-bar,
+    .ep-hero *, .ep-section *, .ep-form-section *, .ep-sticky-bar * {
+        box-sizing: border-box;
+    }
+
     /* --- RESET: Ocultar el nav/menu global del tema para esta LP --- */
     #menupc, .main-nav, .menumv, .checkout.btn,
     .morph-dropdown-wrapper, .logo_pc, .nav-trigger,
     .cd-header > a, .cd-header > nav { display: none !important; }
     /* Colapsar el contenedor del menú para eliminar espacio blanco */
-    .container-fluid, #bloque1.cd-header { 
+    body > .container-fluid:has(> #bloque1.cd-header), #bloque1.cd-header {
         height: 0 !important; min-height: 0 !important; max-height: 0 !important;
         padding: 0 !important; margin: 0 !important; overflow: hidden !important;
         background: none !important;
@@ -28,42 +41,50 @@ get_header();
 
     /* --- STICKY CALL BAR (visible siempre, top fijo) --- */
     .ep-sticky-bar {
-        position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
+        position: sticky; top: 0; width: 100%; z-index: 9999;
         background: #0d0d0d; border-bottom: 1px solid rgba(188,158,82,0.3);
         display: flex; align-items: center; justify-content: space-between;
-        padding: 10px 20px; box-sizing: border-box;
+        min-height: var(--ep-bar-height); gap: 10px;
+        padding: 10px var(--ep-gutter); box-sizing: border-box;
     }
     .ep-sticky-bar .ep-logo {
-        height: 32px; width: auto;
+        max-height: 32px; max-width: 25%; width: auto; height: auto;
     }
     .ep-sticky-bar .ep-call-btn {
         display: inline-flex; align-items: center; gap: 8px;
         background: #bc9e52; color: #000; text-decoration: none;
-        font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
-        padding: 10px 18px; border-radius: 30px; letter-spacing: 0.5px;
+        font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px;
+        padding: 10px 12px; border-radius: 30px; letter-spacing: 0.5px;
+        text-align: center;
         transition: background 0.3s;
     }
     .ep-sticky-bar .ep-call-btn:hover { background: #d4b96a; }
     @media (min-width: 768px) {
-        .ep-sticky-bar { padding: 12px 40px; }
-        .ep-sticky-bar .ep-logo { height: 38px; }
+        .ep-sticky-bar .ep-logo { max-height: 38px; }
         .ep-sticky-bar .ep-call-btn { font-size: 15px; padding: 12px 28px; }
     }
 
     /* --- HERO SECTION --- */
     .ep-hero {
-        margin-top: 55px; /* compensar sticky bar */
         background: #0a0a0a;
-        background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/ep-hero-bg.png");
+        background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/ep-vip-arrival.png");
         background-size: cover; background-position: center top;
-        min-height: 100dvh; display: flex; align-items: center; justify-content: center;
-        position: relative; text-align: center; padding: 60px 20px;
+        min-height: calc(100dvh - var(--ep-bar-height)); display: grid; align-items: center;
+        position: relative; text-align: center; padding: 60px var(--ep-gutter);
     }
     .ep-hero::before {
         content: ''; position: absolute; inset: 0;
         background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(5,15,30,0.5) 50%, rgba(0,0,0,0.85) 100%);
     }
-    .ep-hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .ep-hero-inner { position: relative; z-index: 2; width: 100%; max-width: var(--ep-content-width); margin: 0 auto; }
+    .ep-hero-content { max-width: 700px; margin: 0 auto; min-width: 0; }
+    @media (min-width: 992px) {
+        .ep-hero { text-align: left; }
+        .ep-hero::before { background: linear-gradient(90deg, rgba(0,0,0,0.85), rgba(5,15,30,0.6) 50%, rgba(0,0,0,0.3)); }
+        .ep-hero-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+        .ep-hero-content { margin: 0; }
+        .ep-hero .ep-trust { justify-content: flex-start; }
+    }
 
     .ep-hero h1 {
         font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 700;
@@ -86,6 +107,8 @@ get_header();
         transition: all 0.3s ease; box-shadow: 0 0 30px rgba(188,158,82,0.3);
         text-transform: uppercase;
         margin-top: 15px !important; margin-bottom: 25px !important;
+        max-width: 100%; justify-content: center; text-align: center;
+        white-space: normal; overflow-wrap: anywhere;
     }
     .ep-cta-primary:hover { background: #d4b96a; box-shadow: 0 0 50px rgba(188,158,82,0.5); transform: scale(1.03); }
 
@@ -110,18 +133,18 @@ get_header();
     }
     .ep-trust span {
         font-family: 'Lato', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65);
-        letter-spacing: 0.5px; white-space: nowrap;
+        letter-spacing: 0.5px;
     }
     @media (min-width: 768px) {
         .ep-trust span { font-size: 13px; }
     }
 
     /* --- SECTION 2: Why Trust --- */
-    .ep-section { padding: 70px 20px; text-align: center; }
+    .ep-section { padding: 70px var(--ep-gutter); text-align: center; }
     .ep-section.dark { background: #0d0d0d; }
     .ep-section.darker { background: #080808; }
 
-    .ep-section-inner { max-width: 900px; margin: 0 auto; }
+    .ep-section-inner { max-width: var(--ep-content-width); margin: 0 auto; }
 
     .ep-section h2 {
         font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300;
@@ -155,9 +178,14 @@ get_header();
         font-size: 0.95rem; line-height: 1.7; margin: 0;
     }
 
+    @media (min-width: 992px) {
+        .ep-bullets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 35px; }
+        .ep-bullets li { margin-bottom: 0; }
+    }
+
     /* --- SECTION 3: Service Cards --- */
     .ep-cards { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 10px; }
-    @media (min-width: 768px) { .ep-cards { grid-template-columns: repeat(3, 1fr); gap: 25px; } }
+    @media (min-width: 992px) { .ep-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; } }
 
     .ep-card {
         background: rgba(255,255,255,0.03); border: 1px solid rgba(188,158,82,0.2);
@@ -198,22 +226,22 @@ get_header();
     /* --- SECTION 4: Form --- */
     .ep-form-section {
         background: #0a0a0a;
-        background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_pc.jpg");
-        background-size: cover; background-position: center;
-        position: relative; padding: 80px 20px;
+        position: relative; padding: 80px var(--ep-gutter);
+        scroll-margin-top: var(--ep-bar-height);
     }
-    .ep-form-section::before {
-        content: ''; position: absolute; inset: 0;
-        background: rgba(0,0,0,0.8);
+    .ep-form-layout {
+        display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px;
+        align-items: center; max-width: var(--ep-content-width); margin: 0 auto;
     }
-    @media only screen and (max-width: 767px) {
-        .ep-form-section {
-            background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_mv.jpg");
-        }
+    .ep-form-photo { grid-row: 2; margin: 0; }
+    .ep-form-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 12px; }
+    @media (min-width: 992px) {
+        .ep-form-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 60px; }
+        .ep-form-photo { grid-row: auto; }
     }
 
     .ep-form-wrapper {
-        position: relative; z-index: 2; max-width: 480px; margin: 0 auto; text-align: center;
+        position: relative; z-index: 2; width: 100%; min-width: 0; max-width: 480px; margin: 0 auto;
     }
     .ep-form-wrapper h2 {
         font-family: 'Roc Grotesk Wide', sans-serif; font-weight: 300;
@@ -229,7 +257,7 @@ get_header();
         width: 100%; padding: 16px 8px; margin-bottom: 0;
         border: none; border-bottom: 1px solid rgba(255,255,255,0.3);
         background: transparent; color: #fff;
-        font-family: 'Lato', sans-serif; font-size: 15px;
+        font-family: 'Lato', sans-serif; font-size: 16px;
         box-sizing: border-box; border-radius: 0; transition: border-color 0.3s;
         -webkit-appearance: none; appearance: none;
     }
@@ -245,7 +273,8 @@ get_header();
         font-family: 'Montserrat', sans-serif; text-transform: uppercase;
         letter-spacing: 2px; border: 1px solid #fff;
         padding: 18px 50px; border-radius: 40px; font-size: 14px;
-        cursor: pointer; width: auto; display: inline-block;
+        cursor: pointer; width: 100%; max-width: 100%; display: inline-block;
+        white-space: normal; overflow-wrap: anywhere;
         transition: all 0.3s; margin-top: 10px;
     }
     .ep-form .ep-form-submit:hover { background: #fff; color: #000; }
@@ -264,7 +293,18 @@ get_header();
 
     /* Ocultar checkout del footer en LPs */
     .checkout.btn { display: none !important; }
+    .ep-sticky-bar a:focus-visible, .ep-hero a:focus-visible,
+    .ep-mid-cta a:focus-visible, .ep-form button:focus-visible {
+        outline: 2px solid #bc9e52; outline-offset: 4px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .ep-cta-primary { animation: none; }
+        .ep-cta-primary, .ep-card { transition: none; }
+    }
 </style>
+
+<!-- Cierra los divs del menu.php antes de la barra para evitar recortes y colapsos. -->
+</div></div>
 
 <!-- ============================================================
      STICKY CALL BAR
@@ -276,27 +316,26 @@ get_header();
     </a>
 </div>
 
-<!-- Cierra los divs del menu.php (#bloque1 y container-fluid) para tener control total del layout -->
-</div></div>
-
 <!-- ============================================================
      HERO SECTION
      ============================================================ -->
 <section class="ep-hero">
-    <div class="ep-hero-content">
-        <h1>Immediate <span>Executive & VIP</span> Protection in NYC</h1>
-        <p class="ep-sub">Elite, highly vetted protection details ready for rapid deployment. Complete discretion and absolute security for executives, high-profile individuals, and emergency escorts.</p>
+    <div class="ep-hero-inner">
+        <div class="ep-hero-content">
+            <h1>Immediate <span>Executive & VIP</span> Protection in NYC</h1>
+            <p class="ep-sub">Elite, highly vetted protection details ready for rapid deployment. Complete discretion and absolute security for executives, high-profile individuals, and emergency escorts.</p>
 
-        <a href="tel:+19178283434" onclick="return gtag_report_conversion('tel:917-828-3434');" class="ep-cta-primary">
-            CALL 24/7 DISPATCH: (917) 828-3434
-        </a>
-        <br>
-        <a href="#ep-callback-form" class="ep-cta-secondary">Request Immediate Callback</a>
+            <a href="tel:+19178283434" onclick="return gtag_report_conversion('tel:917-828-3434');" class="ep-cta-primary">
+                CALL 24/7 DISPATCH: (917) 828-3434
+            </a>
+            <br>
+            <a href="#ep-callback-form" class="ep-cta-secondary">Request Immediate Callback</a>
 
-        <div class="ep-trust">
-            <span>✓ 100% Confidential (NDA Compliant)</span>
-            <span>✓ Rapid Deployment</span>
-            <span>✓ Fully Licensed & Bonded</span>
+            <div class="ep-trust">
+                <span>✓ 100% Confidential (NDA Compliant)</span>
+                <span>✓ Rapid Deployment</span>
+                <span>✓ Fully Licensed & Bonded</span>
+            </div>
         </div>
     </div>
 </section>
@@ -373,39 +412,44 @@ get_header();
      SECTION 4: Callback Form
      ============================================================ -->
 <section class="ep-form-section" id="ep-callback-form">
-    <div class="ep-form-wrapper">
-        <h2>Need Immediate Assistance?</h2>
-        <p class="ep-form-sub">Leave your number and our dispatch team will call you back within minutes. Discretion is guaranteed.</p>
+    <div class="ep-form-layout">
+        <figure class="ep-form-photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/fondos/ep-private-aviation.png" alt="Executive protection team accompanying a client to a private aircraft" width="1200" height="1200" loading="lazy" decoding="async">
+        </figure>
+        <div class="ep-form-wrapper">
+            <h2>Need Immediate Assistance?</h2>
+            <p class="ep-form-sub">Leave your number and our dispatch team will call you back within minutes. Discretion is guaranteed.</p>
 
-        <form id="theForm" class="ep-form" action="<?php echo get_site_url(); ?>/?page_id=33" method="post" accept-charset="UTF-8" autocomplete="off">
-            <input name="tipo" type="hidden" value="registrarse">
-            <input type="hidden" name="hs_google_click_id" id="gclid_field" value="">
+            <form id="theForm" class="ep-form" action="<?php echo get_site_url(); ?>/?page_id=33" method="post" accept-charset="UTF-8" autocomplete="off">
+                <input name="tipo" type="hidden" value="registrarse">
+                <input type="hidden" name="hs_google_click_id" id="gclid_field" value="">
 
-            <div class="ep-form-group">
-                <label for="ep-name">Full Name</label>
-                <input id="ep-name" name="firstname" type="text" required placeholder="FULL NAME *">
-            </div>
-            <div class="ep-form-group">
-                <label for="ep-phone">Phone Number</label>
-                <input id="ep-phone" name="phone" type="tel" required placeholder="PHONE NUMBER *">
-            </div>
-            <div class="ep-form-group">
-                <label for="ep-service">Service Required</label>
-                <select id="ep-service" name="company" required>
-                    <option value="" disabled selected>SERVICE REQUIRED *</option>
-                    <option value="Executive Protection">Executive Protection</option>
-                    <option value="Court Escort">Court Escort</option>
-                    <option value="Emergency Security">Emergency Security</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
+                <div class="ep-form-group">
+                    <label for="ep-name">Full Name</label>
+                    <input id="ep-name" name="firstname" type="text" required placeholder="FULL NAME *">
+                </div>
+                <div class="ep-form-group">
+                    <label for="ep-phone">Phone Number</label>
+                    <input id="ep-phone" name="phone" type="tel" required placeholder="PHONE NUMBER *">
+                </div>
+                <div class="ep-form-group">
+                    <label for="ep-service">Service Required</label>
+                    <select id="ep-service" name="company" required>
+                        <option value="" disabled selected>SERVICE REQUIRED *</option>
+                        <option value="Executive Protection">Executive Protection</option>
+                        <option value="Court Escort">Court Escort</option>
+                        <option value="Emergency Security">Emergency Security</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
 
-            <!-- Hidden fields to satisfy page-thanks.php expected $_POST keys -->
-            <input type="hidden" name="email" value="urgent-callback@a1securitynyc.com">
-            <input type="hidden" name="message" value="URGENT CALLBACK REQUEST - Executive Protection LP">
+                <!-- Hidden fields to satisfy page-thanks.php expected $_POST keys -->
+                <input type="hidden" name="email" value="urgent-callback@a1securitynyc.com">
+                <input type="hidden" name="message" value="URGENT CALLBACK REQUEST - Executive Protection LP">
 
-            <button class="ep-form-submit" type="submit">Request Confidential Callback</button>
-        </form>
+                <button class="ep-form-submit" type="submit">Request Confidential Callback</button>
+            </form>
+        </div>
     </div>
 </section>
 

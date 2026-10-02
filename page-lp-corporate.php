@@ -12,9 +12,9 @@ get_header();
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/banner-full-screen.css">
 <style>
     /* Fondos del hero */
-    #bloque1 { background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/bloque1.jpg") !important; }
+    #bloque1 { background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/corporate-hero-desktop.png") !important; }
     @media (max-width: 1199px) {
-        #bloque1 { background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/Portada_inicio-mv.jpg") !important; }
+        #bloque1 { background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/corporate-hero-mobile.png") !important; }
     }
 
     /* === POSICIONAMIENTO HERO — copiado exacto de main.css que solo carga en homepage === */
@@ -47,16 +47,16 @@ get_header();
     /* Ocultar checkout del footer en LPs */
     .checkout.btn { display: none !important; }
 
-    /* === BLOQUE3: misma imagen de fondo que la homepage === */
+    /* === BLOQUE3: fondos del formulario de Corporate === */
     #bloque3 {
-        background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_pc.jpg") !important;
+        background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/corporate-form-desktop.png") !important;
         background-size: 100% !important;
         background-repeat: no-repeat !important;
         background-position: top !important;
     }
     @media only screen and (max-width: 767px) {
         #bloque3 {
-            background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/inicio_bloque3_mv.jpg") !important;
+            background-image: url("<?php echo get_template_directory_uri(); ?>/imagenes/fondos/corporate-form-mobile.png") !important;
         }
     }
 

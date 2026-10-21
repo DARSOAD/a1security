@@ -1,4 +1,10 @@
 <?php
+// WordPress and SEO plugins generate the document title through wp_head().
+function a1security_setup_document_title() {
+    add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'a1security_setup_document_title' );
+
 function get_excerpt($limit, $source = null){
 
     if($source == "content" ? ($excerpt = get_the_content()) : ($excerpt = get_the_excerpt()));

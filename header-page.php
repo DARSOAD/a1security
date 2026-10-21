@@ -5,7 +5,6 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>A1</title>
 	<!-------------------ICONS---------------->
 	<link href="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/a1security.ico" rel="shortcut icon" type="image/x-icon">
 	<!-------------------ICONS---------------->

@@ -17,10 +17,6 @@
 		<meta property="business:contact_data:region" content="New york">
 		<meta property="business:contact_data:postal_code" content="10022">
 		<meta property="business:contact_data:country_name" content="United States">
-		<title><?php 
-			if(is_home()){echo 'A1 Security Professionals - Your Trusted Security Partner in New York City';}
-			else{wp_title('');}
-			?></title>
 
             <!-------------------ICONS---------------->
 		<link href="<?php echo get_template_directory_uri(); ?>/imagenes/iconos/a1security.ico" rel="shortcut icon" type="image/x-icon">

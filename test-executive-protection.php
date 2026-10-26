@@ -34,6 +34,7 @@ function wp_head() {
         echo '<title>' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '</title>';
     }
 }
+function wp_get_environment_type() { return 'local'; }
 function body_class() { echo 'class="page"'; }
 function get_template_part($name) { require __DIR__ . '/' . $name . '.php'; }
 function get_header() { require __DIR__ . '/header.php'; }
@@ -64,8 +65,12 @@ $form = $xpath->query('//form[@id="theForm"]')->item(0);
 if (!$form || $form->getAttribute('action') !== 'https://example.test/?page_id=33') {
     $failures[] = 'Callback requests must keep the existing submission endpoint.';
 }
-if ($xpath->query('//form[@id="theForm"]//*[@required]')->length !== 3) {
-    $failures[] = 'Callback requests must require name, phone, and service.';
+if ($xpath->query('//form[@id="theForm"]//*[@required]')->length !== 4) {
+    $failures[] = 'Callback requests must require name, phone, service, and a real email.';
+}
+if ($xpath->query('//form[@id="theForm"]//input[@type="email" and @name="email"]')->length !== 1
+    || str_contains($html, 'urgent-callback@a1securitynyc.com')) {
+    $failures[] = 'HubSpot must receive the visitor email instead of a shared placeholder.';
 }
 
 // Ordinary pages must keep their existing header styling.

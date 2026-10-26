@@ -178,23 +178,23 @@ get_header(); ?>
 			<ol class="questions">
 				<li class="current">
 					<span><label for="q1">Company name </label></span>
-					<input id="q1" name="empresa" type="text">
+					<input id="q1" name="company" type="text">
 				</li>
 				<li>
 					<span><label for="q2"> Phone number</label></span>
-					<input id="q2" name="telefono" type="text">
+					<input id="q2" name="phone" type="text">
 				</li>
 				<li>
 					<span><label for="q3"> Email </label></span>
-					<input id="q3" name="correo" type="text">
+					<input id="q3" name="email" type="email">
 				</li>
 				<li>
 					<span><label for="q4"> Name </label></span>
-					<input id="q4" name="nombre" type="text">
+					<input id="q4" name="firstname" type="text">
 				</li>
 				<li>
 					<span><label for="q6"> Additional information</label></span>
-					<input id="q6" name="comentarios" type="text">
+					<input id="q6" name="message" type="text">
 				</li>
 			</ol>
 			<button class="submit" type="submit"> Submit </button>

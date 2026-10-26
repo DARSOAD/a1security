@@ -375,12 +375,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const gclid = urlParams.get('gclid');
     
     // Guardar en LocalStorage si existe en la URL
-    if (gclid) {
-        localStorage.setItem('google_gclid', gclid);
+    let storedGclid = gclid;
+    try {
+        if (gclid) localStorage.setItem('google_gclid', gclid);
+        storedGclid = gclid || localStorage.getItem('google_gclid');
+    } catch (error) {
+        // Capture the current click even when browser storage is unavailable.
     }
-    
-    // Inyectarlo en el campo oculto si existe el formulario
-    const storedGclid = localStorage.getItem('google_gclid');
     const gclidInput = document.getElementById('gclid_field');
     
     if (storedGclid && gclidInput) {

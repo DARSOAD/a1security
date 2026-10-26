@@ -434,7 +434,7 @@ get_header();
                 </div>
                 <div class="ep-form-group">
                     <label for="ep-service">Service Required</label>
-                    <select id="ep-service" name="company" required>
+                    <select id="ep-service" name="service" required>
                         <option value="" disabled selected>SERVICE REQUIRED *</option>
                         <option value="Executive Protection">Executive Protection</option>
                         <option value="Court Escort">Court Escort</option>
@@ -443,11 +443,13 @@ get_header();
                     </select>
                 </div>
 
-                <!-- Hidden fields to satisfy page-thanks.php expected $_POST keys -->
-                <input type="hidden" name="email" value="urgent-callback@a1securitynyc.com">
+                <div class="ep-form-group">
+                    <label for="ep-email">Email Address</label>
+                    <input id="ep-email" name="email" type="email" autocomplete="email" required placeholder="EMAIL ADDRESS *">
+                </div>
                 <input type="hidden" name="message" value="URGENT CALLBACK REQUEST - Executive Protection LP">
 
-                <button class="ep-form-submit" type="submit">Request Confidential Callback</button>
+                <input class="ep-form-submit" type="submit" value="Request Confidential Callback">
             </form>
         </div>
     </div>
@@ -461,7 +463,7 @@ get_header();
 </div>
 
 <!-- ============================================================
-     SCRIPTS: HubSpot + GCLID capture + Form submit handler
+     SCRIPTS: GCLID capture (HubSpot collected forms is loaded by the plugin)
      ============================================================ -->
 <script>
     // Capture GCLID from URL params
@@ -473,16 +475,5 @@ get_header();
         }
     })();
 
-    // Form submit handler - push to HubSpot before sending
-    var theForm = document.getElementById('theForm');
-    if (theForm) {
-        theForm.addEventListener('submit', function(e) {
-            var btn = theForm.querySelector('.ep-form-submit');
-            if (btn) {
-                btn.innerHTML = 'DISPATCHING...';
-                btn.style.opacity = '0.7';
-            }
-        });
-    }
 </script>
 <?php get_footer(); ?>

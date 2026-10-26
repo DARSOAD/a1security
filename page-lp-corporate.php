@@ -310,20 +310,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <label for="c6">Additional information</label>
             <textarea id="c6" name="message" rows="2" placeholder="HOW CAN WE HELP YOU?"></textarea>
         </div>
-        <button class="classic-submit" type="submit">Get a Free Consultation</button>
+        <input class="classic-submit" type="submit" value="Get a Free Consultation">
     </form>
 </div>
 
-<script>
-    var theForm = document.getElementById('theForm');
-    if(theForm) {
-        theForm.addEventListener('submit', function(e) {
-            var btn = theForm.querySelector('.classic-submit');
-            if (btn) {
-                btn.innerHTML = 'Sending...';
-                btn.style.opacity = '0.7';
-            }
-        });
-    }
-</script>
+
 <?php get_footer(); ?>

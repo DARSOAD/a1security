@@ -1,106 +1,5 @@
 <?php
-$tipo=$_POST['tipo'];
-	if($tipo === 'registrarse'){
-	    $empresa=$_POST['company'];
-		$telefono=$_POST['phone'];
-		$correo=$_POST['email'];
-		$nombre=$_POST['firstname'];
-		$comentarios=$_POST['message'];
-        $sender = 'a1securenyc@gmail.com';
-        echo $correo;
-        //$recipient = '$correo';
-        $recipient = 'mainteamagency@gmail.com';
-        $subject = "Solicitud de información";
-        //$message = "Este es el correo nuevo";
-        $message= '
-		<html>
-		<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,900" rel="stylesheet">
-		<style type="text/css">
-
-		#encabezado { 
-		background-color:#FFFFFF;
-		font: Lato, sans-serif;
-		font-weight:300;
-		color:black;
-		font-size:10pt;
-		margin:10px;
-		text-align:center;
-		}
-		#cuerpo {
-		background-color: #ffffff;
-		font: Lato, sans-serif;
-		font-weight:300;
-		color:#666666;
-		font-size:10pt;
-		width:600px;
-		}
-
-		</style>
-		</head>
-		<body>
-		<div id="encabezado">
-		<h1> Datos del cliente: </h1>
-		</div>
-		<div id="cuerpo">
-		<p>Nombre: '.$nombre.'</p>
-		<p>Empresa: '.$empresa.'</p>
-		<p>Telefono: '.$telefono.'</p>
-		<p>Correo: '.$correo.'</p>
-		<p>Comentarios: '.$comentarios.'</p>
-		<p><strong>Google Click ID (GCLID):</strong> ' . (isset($_POST['hs_google_click_id']) ? $_POST['hs_google_click_id'] : 'N/A') . '</p>
-		</div>
-		</body>
-		</html>';
-        $headers = "MIME-Version: 1.0\r\n";
-		$headers .= "Content-type: text/html; charset=utf-8\r\n";
-		$headers .= "From: A1 Security WEB <$sender>\r\n";
-		$headers .= "Reply-To: $sender\r\n";
-		$headers .= "Return-path: $sender\r\n";
-        mail('a1securenyc@gmail.com', $subject, $message, $headers);
-        mail('nick@a1securitynyc.com', $subject, $message, $headers);
-        mail('diego@a1securitynyc.com', $subject, $message, $headers);
-        $message= '
-		<html>
-		<head>
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,900" rel="stylesheet">
-		<style type="text/css">
-
-		#encabezado { 
-		background-color:#FFFFFF;
-		font: Lato, sans-serif;
-		font-weight:300;
-		color:black;
-		font-size:10pt;
-		margin:10px;
-		text-align:center;
-		}
-		#cuerpo {
-		background-color: #ffffff;
-		font: Lato, sans-serif;
-		font-weight:300;
-		color:#666666;
-		font-size:10pt;
-		width:600px;
-		}
-
-		</style>
-		</head>
-		<body>
-		<div id="encabezado">
-		<h1> '.$nombre.', THANK YOU FOR CONTACTING US </h1>
-		<p>Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at a1securenyc@gmail.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</p>
-		</div>
-		<div id="cuerpo">		
-		<p>Best regards,</p>
-		<p>A1 Security Professionals&reg;</p>
-		</div>
-		</body>
-		</html>
-		';
-		mail($correo, $subject, $message, $headers);
-    }
- 
+$receipt = a1_contact_take_receipt();
 ?>
 <!doctype html>
 <html>
@@ -168,41 +67,14 @@ $tipo=$_POST['tipo'];
 		#boton{width: 40%;margin: 5px 30% 0 30%;font-size:12px;}
 	}
 </style>
-<!---------------------------------------SMART LOOK------------------->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-11452936391');
-
-  gtag('event', 'conversion', {
-      'send_to': 'AW-11452936391/qacnCOqnoPMcEMfhl9Uq',
-      'value': 1.0,
-      'currency': 'USD'
-  });
-</script>
-
-<!-- HubSpot Server-Side Injection -->
-<?php if($tipo === 'registrarse'): ?>
-<script>
-  var _hsq = window._hsq = window._hsq || [];
-  _hsq.push(["identify", {
-      email: "<?php echo esc_js($correo); ?>",
-      firstname: "<?php echo esc_js($nombre); ?>",
-      company: "<?php echo esc_js($empresa); ?>",
-      phone: "<?php echo esc_js($telefono); ?>",
-      hs_google_click_id: "<?php echo esc_js($_POST['hs_google_click_id']); ?>"
-  }]);
-  _hsq.push(["trackPageView"]);
-</script>
-<?php endif; ?>
-
+<?php a1_contact_tracking($receipt); ?>
 </head>
 <body>
-<h1>THANK YOU FOR CONTACTING US <br> Your message has been received. We´ll be in touch shortly to assist you. If you have any urgent questions, feel free to reach out at a1securenyc@gmail.com or (917) 828-3434. We appreciate your interest in A1 Security Professionals!</h1>
+<?php if ($receipt): ?>
+<h1>THANK YOU FOR CONTACTING US<br>Your request has been submitted. For immediate assistance, call (917) 828-3434.</h1>
+<?php else: ?>
+<h1>CONTACT A1 SECURITY<br>For assistance, call (917) 828-3434 or use the contact form on our website.</h1>
+<?php endif; ?>
 <a href="<?php echo get_site_url(); ?>/"><button id="boton">Home</button></a>
 </body>
 </html>

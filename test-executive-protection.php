@@ -4,6 +4,7 @@ if (PHP_SAPI !== 'cli') {
     http_response_code(404);
     exit;
 }
+define('ABSPATH', __DIR__ . '/');
 
 // Minimal WordPress boundary for rendering the actual theme header and landing.
 $template = 'page-lp-executive-protection.php';

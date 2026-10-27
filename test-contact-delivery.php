@@ -5,7 +5,15 @@ define('MINUTE_IN_SECONDS', 60);
 $cache = array();
 $calls = array();
 $fail_recipient = '';
+$options = array();
+$purges = array();
+$cache_plugin = false;
 function add_action() {}
+function get_option($key) { return $GLOBALS['options'][$key] ?? false; }
+function update_option($key, $value, $autoload) { $GLOBALS['options'][$key] = $value; }
+function has_action($hook) { return $GLOBALS['cache_plugin']; }
+function home_url($path) { return 'https://example.test' . $path; }
+function do_action($hook, $value) { $GLOBALS['purges'][] = array($hook, $value); }
 function sanitize_textarea_field($value) { return trim(strip_tags($value)); }
 function sanitize_text_field($value) { return trim(strip_tags($value)); }
 function wp_unslash($value) { return stripslashes($value); }
@@ -56,4 +64,12 @@ ob_start(); a1_contact_tracking(false); $empty = ob_get_clean();
 check($empty === '', 'Direct GET must render no tracking');
 ob_start(); a1_contact_tracking($receipt); $tracking = ob_get_clean();
 check(str_contains($tracking, 'transaction_id') && str_contains($tracking, '51992513.js') && str_contains($tracking, 'retry@example.com'), 'Successful receipt must load HubSpot and deduplicated conversion');
+a1_contact_purge_after_deploy();
+check(!$options && !$purges, 'Missing cache plugin must not mark purge as completed');
+$cache_plugin = true;
+a1_contact_purge_after_deploy();
+check(count($purges) === 7 && in_array(array('litespeed_purge_url', 'https://example.test/thanks/'), $purges, true), 'Release must purge the fixed list of affected URLs');
+a1_contact_purge_after_deploy();
+check(count($purges) === 7, 'Purge must run only once for this release');
 echo "PASS: validation, legacy mapping, recipients, mail failure/retry, deduplication, single-use receipts and tracking.\n";
+echo "PASS: one-time release cache invalidation and missing-plugin behavior.\n";

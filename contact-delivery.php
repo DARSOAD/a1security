@@ -4,6 +4,22 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+function a1_contact_purge_after_deploy() {
+    // FTP updates do not trigger WordPress's theme-update cache invalidation.
+    // Invalidate only the affected pages once when this release reaches PHP.
+    $version = '2026-10-27-1';
+    if (wp_get_environment_type() === 'local'
+        || get_option('a1_contact_cache_version') === $version
+        || !has_action('litespeed_purge_url')) {
+        return;
+    }
+    foreach (array('/', '/immediate-vip-protection/', '/hospitality-security/', '/corporate-security/', '/thanks/', '/?page_id=33', '/gracias/') as $path) {
+        do_action('litespeed_purge_url', home_url($path));
+    }
+    update_option('a1_contact_cache_version', $version, false);
+}
+add_action('wp_loaded', 'a1_contact_purge_after_deploy');
+
 function a1_contact_data($input) {
     $aliases = array('firstname' => 'nombre', 'phone' => 'telefono', 'email' => 'correo', 'company' => 'empresa', 'message' => 'comentarios');
     $data = array();
@@ -58,6 +74,7 @@ function a1_contact_receive() {
     if (!defined('DONOTCACHEPAGE')) {
         define('DONOTCACHEPAGE', true);
     }
+    do_action('litespeed_control_set_nocache', 'A1 contact receipt');
     nocache_headers();
     header('Referrer-Policy: no-referrer');
     if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {

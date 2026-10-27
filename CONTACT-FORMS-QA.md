@@ -1,5 +1,9 @@
 # Contact form repair — 2026-10-26
 
+## Cache correction — 2026-10-27 UTC
+
+After the successful FTP deployment and a user-reported manual purge, public canonical URLs still returned the old HTML: `x-hcdn-cache-status: MISS` with `x-litespeed-cache: hit`. Requests with a new query string returned the updated form. Added a versioned, one-time `litespeed_purge_url` hook for the four contact pages and the thank-you routes. The next uncached WordPress request triggers it; later requests do not repeatedly purge. Receipt routes explicitly tell LiteSpeed not to cache. Production URL checks are still required after deployment.
+
 ## Change
 
 - Shared WordPress receiver validates name, phone and real email, and accepts legacy Spanish field names.

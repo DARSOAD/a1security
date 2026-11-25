@@ -7,13 +7,13 @@ if (!defined('ABSPATH')) {
 function a1_contact_purge_after_deploy() {
     // FTP updates do not trigger WordPress's theme-update cache invalidation.
     // Invalidate only the affected pages once when this release reaches PHP.
-    $version = '2026-10-27-1';
+    $version = '2026-11-25-policy';
     if (wp_get_environment_type() === 'local'
         || get_option('a1_contact_cache_version') === $version
         || !has_action('litespeed_purge_url')) {
         return;
     }
-    foreach (array('/', '/immediate-vip-protection/', '/hospitality-security/', '/corporate-security/', '/thanks/', '/?page_id=33', '/gracias/') as $path) {
+    foreach (array('/', '/immediate-vip-protection/', '/hospitality-security/', '/corporate-security/', '/thanks/', '/?page_id=33', '/gracias/', '/privacy-policy-2/') as $path) {
         do_action('litespeed_purge_url', home_url($path));
     }
     update_option('a1_contact_cache_version', $version, false);

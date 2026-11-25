@@ -71,9 +71,9 @@ a1_contact_purge_after_deploy();
 check(!$options && !$purges, 'Missing cache plugin must not mark purge as completed');
 $cache_plugin = true;
 a1_contact_purge_after_deploy();
-check(count($purges) === 7 && in_array(array('litespeed_purge_url', 'https://example.test/thanks/'), $purges, true), 'Release must purge the fixed list of affected URLs');
+check(count($purges) === 8 && in_array(array('litespeed_purge_url', 'https://example.test/privacy-policy-2/'), $purges, true), 'Release must purge the fixed list of affected URLs');
 a1_contact_purge_after_deploy();
-check(count($purges) === 7, 'Purge must run only once for this release');
+check(count($purges) === 8, 'Purge must run only once for this release');
 echo "PASS: validation, legacy mapping, recipients, mail failure/retry, deduplication, single-use receipts and tracking.\n";
 echo "PASS: one-time release cache invalidation and missing-plugin behavior.\n";
 

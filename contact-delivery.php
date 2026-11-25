@@ -44,10 +44,10 @@ function a1_contact_valid($data) {
         && in_array($data['service'], array('', 'Executive Protection', 'Court Escort', 'Emergency Security', 'Other'), true);
 }
 
-function a1_contact_deliver($data) {
+function a1_contact_deliver($data, $durable_key = '') {
     // Deduplicate retries for ten minutes; retry only recipients that failed.
     $key = 'a1_delivery_' . hash_hmac('sha256', wp_json_encode($data), wp_salt('auth'));
-    $state = get_transient($key);
+    $state = $durable_key ? get_option($durable_key) : get_transient($key);
     if (!is_array($state)) {
         $state = array('id' => wp_generate_uuid4(), 'sent' => array());
     }
@@ -59,11 +59,25 @@ function a1_contact_deliver($data) {
     $headers = array('Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $data['email']);
     foreach (array('a1securenyc@gmail.com', 'diegoanrora@gmail.com') as $recipient) {
         if (empty($state['sent'][$recipient])) {
+            if ($durable_key && !empty($state['in_flight'])) {
+                return array('id' => $state['id'], 'ok' => false, 'unknown' => true);
+            }
+            if ($durable_key) {
+                $state['in_flight'] = $recipient;
+                update_option($durable_key, $state, false);
+                if (get_option($durable_key) !== $state) { return array('id' => $state['id'], 'ok' => false, 'unknown' => true); }
+            }
             $state['sent'][$recipient] = wp_mail($recipient, 'A1 website contact request', $body, $headers);
-            set_transient($key, $state, 10 * MINUTE_IN_SECONDS);
+            unset($state['in_flight']);
+            if ($durable_key) {
+                $state['status'] = count(array_filter($state['sent'])) === 2 ? 'mail_accepted' : 'mail_pending';
+                update_option($durable_key, $state, false);
+                if (get_option($durable_key) !== $state) { return array('id' => $state['id'], 'ok' => false, 'unknown' => true); }
+            } else { set_transient($key, $state, 10 * MINUTE_IN_SECONDS); }
         }
     }
-    return array('id' => $state['id'], 'ok' => !in_array(false, $state['sent'], true));
+    $ok = !in_array(false, $state['sent'], true);
+    return array('id' => $state['id'], 'ok' => $ok, 'unknown' => $durable_key && !$ok && count(array_filter($state['sent'])) > 0);
 }
 
 function a1_contact_receive() {

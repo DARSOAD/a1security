@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/contact-delivery.php';
+require_once __DIR__ . '/quote-request.php';
 // WordPress and SEO plugins generate the document title through wp_head().
 function a1security_setup_document_title() {
     add_theme_support( 'title-tag' );

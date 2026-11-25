@@ -73,3 +73,39 @@ a1_contact_purge_after_deploy();
 check(count($purges) === 7, 'Purge must run only once for this release');
 echo "PASS: validation, legacy mapping, recipients, mail failure/retry, deduplication, single-use receipts and tracking.\n";
 echo "PASS: one-time release cache invalidation and missing-plugin behavior.\n";
+
+// Quote requests: break caught = accepting missing business fields or requiring phone.
+if (file_exists(__DIR__ . '/quote-request.php')) { require __DIR__ . '/quote-request.php'; }
+check(function_exists('a1_quote_validate'), 'Quote validation must support the new commercial request contract');
+$quote = array('firstname' => 'LOCAL QA QUOTE', 'email' => 'quote@example.com', 'phone' => '',
+    'company' => 'QA Venue', 'location' => 'Manhattan, NYC', 'service' => 'S02',
+    'coverage_type' => 'both', 'message' => 'QA TEST ONLY: recurring door coverage and private booking',
+    'event_start' => '2026-12-03T22:00', 'event_end' => '2026-12-04T02:00',
+    'utm_source' => 'linkedin', 'utm_medium' => 'paid_social', 'utm_campaign' => 'a1_s02_quote_202612', 'utm_content' => 'n1');
+$validated = a1_quote_validate($quote, 'S02');
+check(!$validated['errors'], 'Valid overnight quote with optional empty phone must pass');
+check($validated['data']['origin_service'] === 'S02' && $validated['data']['service'] === 'S02', 'Origin and chosen service must remain separate');
+foreach (array('firstname', 'email', 'company', 'location', 'service', 'coverage_type', 'message') as $field) {
+    $invalid = $quote; $invalid[$field] = '';
+    check(isset(a1_quote_validate($invalid, 'S02')['errors'][$field]), 'Missing ' . $field . ' must fail');
+}
+foreach (array('phone' => '123', 'service' => 'bad', 'email' => "qa@example.com\r\nBcc: bad@example.com", 'company' => array('bad'), 'event_end' => '2026-12-03T02:00', 'preferred_start' => '2026-02-30') as $field => $value) {
+    $invalid = $quote; $invalid[$field] = $value;
+    check(isset(a1_quote_validate($invalid, 'S02')['errors'][$field]), 'Malformed ' . $field . ' must fail');
+}
+$quote['service'] = 'S03'; $quote['utm_source'] = '<script>bad</script>'; $quote['utm_term'] = 'person@example.com';
+$validated = a1_quote_validate($quote, 'S02');
+check($validated['data']['service'] === 'S03' && $validated['data']['origin_service'] === 'S02', 'Changed service must not overwrite landing origin');
+check($validated['data']['utm_source'] === '' && !isset($validated['data']['utm_term']), 'Unexpected attribution must not enter the record');
+$quote['schedule_unknown'] = '1'; $quote['preferred_start'] = 'wrong';
+check(!a1_quote_validate($quote, 'S02')['errors'], 'Unknown schedule must ignore stale date controls');
+// Durable transport ledger: clearing transient cache must not resend accepted mail.
+$persist_data = $data; $persist_data['email'] = 'durable@example.com';
+$calls = array(); $fail_recipient = 'diegoanrora@gmail.com';
+$result = a1_contact_deliver($persist_data, 'a1_quote_test');
+check(!$result['ok'], 'Partial durable delivery must remain an error');
+$cache = array(); $fail_recipient = '';
+$result2 = a1_contact_deliver($persist_data, 'a1_quote_test');
+check($result2['ok'] && count($calls) === 3 && $result['id'] === $result2['id'], 'Durable retry sends only failed recipient after transient eviction');
+check(a1_contact_deliver($persist_data, 'a1_quote_test')['ok'] && count($calls) === 3, 'Durable duplicate must send no further messages');
+echo "PASS: quote fields, service/origin, optional phone, overnight dates, attribution and durable retry.\n";

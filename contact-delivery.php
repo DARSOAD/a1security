@@ -120,7 +120,7 @@ function a1_contact_take_receipt() {
     return is_array($receipt) ? $receipt : false;
 }
 
-function a1_contact_tracking($receipt) {
+function a1_contact_tracking($receipt, $google_ads = true) {
     if (!$receipt || wp_get_environment_type() === 'local') {
         return;
     }
@@ -140,6 +140,7 @@ function a1_contact_tracking($receipt) {
     window._hsq = window._hsq || [];
     window._hsq.push(['identify', <?php echo wp_json_encode($properties, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>]);
     window._hsq.push(['trackPageView']);
+    <?php if ($google_ads) : ?>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -150,8 +151,9 @@ function a1_contact_tracking($receipt) {
         value: 1.0,
         currency: 'USD'
     });
+    <?php endif; ?>
     </script>
     <script async defer src="https://js.hs-scripts.com/51992513.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script>
+    <?php if ($google_ads) : ?><script async src="https://www.googletagmanager.com/gtag/js?id=AW-11452936391"></script><?php endif; ?>
     <?php
 }

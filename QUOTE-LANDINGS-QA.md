@@ -6,7 +6,9 @@ Receiver: `quote-request.php`, shared `a1_contact_deliver()` transport. New dura
 
 Checks: PHP validation/regression suites, real local HTTP and concurrency tests, Edge 390/1440 and actual local browser submissions. Detailed evidence, screenshots, references and launch dependencies are in the marketing workspace `campaigns/linkedin-ads/2026-12/qa-landings.md`.
 
-HubSpot browser collection is excluded on this template; an authenticated CRM sync has NOT been implemented or verified. Only the shared email transport and durable WordPress inbox are implemented. No LinkedIn conversion ID was invented.
+Update 2026-11-25: local page `linkedin-quote-thanks` (276), template `page-linkedin-quote-thanks.php`, now receives successful quote submissions. The one-time receipt expires after ten minutes; duplicates retain the same token. Direct, expired and consumed links never identify contacts or emit receipt events. It reuses `a1_contact_tracking($receipt, false)` for the existing HubSpot portal 51992513; Google Ads conversion remains exclusive to legacy calls. Browser collection is excluded on quote and receipt templates. This is contact identification, not a Forms API submission or verified CRM sync. Local mail/tracking stay blocked. No LinkedIn conversion ID was invented.
+
+PHP regression, HTTP/concurrency, durable database checks, expiry/invalid tokens and Edge 390/1440 checks passed on 2026-11-25. Browser screenshots/results are in the marketing workspace QA folder. External mail/HubSpot reception remains unverified. Canonical receipt copy: `content_factory/linkedin_posts/2026-12/landings/thanks.md`.
 
 Do not launch without the published privacy policy and external receipt/CRM acceptance. Public privacy-policy currently returns 404; local page 3 is draft. Local mail/tracking are blocked. `wp_mail(true)` is not proof of inbox delivery. Record retention needs agreement before launch.
 

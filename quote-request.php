@@ -114,7 +114,7 @@ function a1_quote_receive() {
                 update_option($recent_key, array('key' => $key, 'expires' => time() + 10 * MINUTE_IN_SECONDS), false);
                 $delivery = a1_contact_deliver(a1_quote_transport_data($data), $key);
                 if (!$delivery['ok']) { $response = array('message' => a1_quote_failure(!empty($delivery['unknown']))); $status = 503; }
-                else { $response = array('id' => $delivery['id'], 'service' => $data['service'], 'message' => 'Thank you. We received your security quote request.'); }
+                else { $response = array('id' => $delivery['id'], 'service' => $data['service'], 'message' => 'Thank you. We received your security quote request.', 'redirect' => a1_quote_receipt_url($key)); }
             }
         }
     } finally { delete_option($mutex); }
@@ -124,16 +124,50 @@ function a1_quote_receive() {
 add_action('wp_ajax_nopriv_a1_security_quote', 'a1_quote_receive');
 add_action('wp_ajax_a1_security_quote', 'a1_quote_receive');
 
+// Called inside the submission mutex, after both mail destinations accepted.
+function a1_quote_receipt_url($key) {
+    $page = get_page_by_path('linkedin-quote-thanks');
+    if (!$page || $page->post_status !== 'publish' || get_page_template_slug($page->ID) !== 'page-linkedin-quote-thanks.php') { return ''; }
+    $record = get_option($key);
+    if (!is_array($record) || ($record['status'] ?? '') !== 'mail_accepted') { return ''; }
+    if (empty($record['receipt_token'])) {
+        $token = wp_generate_password(40, false, false);
+        $receipt_key = 'a1_quote_receipt_' . hash('sha256', $token);
+        if (!a1_quote_add_once($receipt_key, array('key' => $key, 'expires' => time() + 10 * MINUTE_IN_SECONDS))) { return ''; }
+        $record['receipt_token'] = $token;
+        update_option($key, $record, false);
+        if (get_option($key) !== $record) { delete_option($receipt_key); return ''; }
+    }
+    // Never issue another tracking receipt for duplicate submissions.
+    return add_query_arg('receipt', $record['receipt_token'], get_permalink($page->ID));
+}
+
+function a1_quote_take_receipt() {
+    $token = $_GET['receipt'] ?? '';
+    if (!is_string($token) || !preg_match('/^[A-Za-z0-9]{40}$/D', $token)) { return false; }
+    $key = 'a1_quote_receipt_' . hash('sha256', $token);
+    $pointer = get_option($key);
+    // DELETE succeeds for just one worker, including concurrent page loads.
+    if (!is_array($pointer) || !delete_option($key) || $pointer['expires'] <= time()) { return false; }
+    $record = get_option($pointer['key']);
+    if (!is_array($record) || ($record['status'] ?? '') !== 'mail_accepted' || ($record['receipt_token'] ?? '') !== $token) { return false; }
+    $contact = a1_quote_transport_data($record['data']);
+    // An optional blank phone must not erase an existing HubSpot contact's phone.
+    if ($contact['phone'] === '') { unset($contact['phone']); }
+    return array('id' => $record['id'], 'contact' => $contact, 'service' => $record['data']['service']);
+}
+
 function a1_quote_page_prepare() {
-    if (!is_page_template('page-security-quote.php')) { return; }
+    if (!is_page_template(array('page-security-quote.php', 'page-linkedin-quote-thanks.php'))) { return; }
     if (!defined('DONOTCACHEPAGE')) { define('DONOTCACHEPAGE', true); }
     do_action('litespeed_control_set_nocache', 'A1 quote form nonce');
     nocache_headers(); header('Referrer-Policy: no-referrer');
+    if (is_page_template('page-linkedin-quote-thanks.php')) { header('X-Robots-Tag: noindex, nofollow'); }
 }
 add_action('template_redirect', 'a1_quote_page_prepare', 2);
 
 function a1_quote_isolate_collection() {
-    if (is_page_template('page-security-quote.php')) {
+    if (is_page_template(array('page-security-quote.php', 'page-linkedin-quote-thanks.php'))) {
         // Browser-collected forms may record a click before validation or receipt.
         // These requests use the durable WP inbox and existing email transport.
         wp_dequeue_script('leadin-script-loader-js');

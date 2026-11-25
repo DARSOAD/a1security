@@ -78,6 +78,13 @@
       if (!response.ok || !result.success) {
         showErrors(result.data?.message || 'We could not send your request. Your entries are still here. Please try again, or contact A1 at a1securenyc@gmail.com or (917) 828-3434.', result.data?.errors || {});
       } else if (typeof result.data?.id === 'string' && result.data.id) {
+        if (result.data.redirect) {
+          const destination = new URL(result.data.redirect, location.origin);
+          if (destination.origin === location.origin && destination.pathname === '/linkedin-quote-thanks/') {
+            location.assign(destination.href);
+            return;
+          }
+        }
         form.hidden = true;
         const success = document.getElementById('quote-success'); success.hidden = false;
         document.getElementById('quote-reference').textContent = 'Request reference: ' + result.data.id;

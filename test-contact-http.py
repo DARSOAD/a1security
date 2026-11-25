@@ -19,6 +19,11 @@ import json
 import re
 import uuid
 
+status, _, markup, headers = request('/linkedin-quote-thanks/')
+assert status == 200 and 'id="quote-receipt-unavailable"' in markup, 'LinkedIn thanks route must show no success on direct GET'
+assert 'no-store' in headers['Cache-Control'] and 'noindex' in headers['X-Robots-Tag']
+assert '51992513.js' not in markup and 'a1_quote_received' not in markup
+
 for path, service in [('/venue-security-quote/', 'S02'), ('/hotel-security-quote/', 'S03')]:
     status, _, markup, headers = request(path)
     assert status == 200 and 'id="quote-form"' in markup, 'Quote landing must resolve to the shared commercial form'
@@ -39,10 +44,21 @@ for path, service in [('/venue-security-quote/', 'S02'), ('/hotel-security-quote
     status, _, result, _ = request('/wp-admin/admin-ajax.php', fields)
     received = json.loads(result)
     assert status == 200 and received['success'], (status, result)
+    redirect = received['data'].get('redirect', '')
+    assert redirect.startswith(BASE + '/linkedin-quote-thanks/?receipt='), 'Accepted request must return LinkedIn receipt URL'
+    assert fields['email'] not in redirect and fields['company'] not in redirect
     status, _, duplicate, _ = request('/wp-admin/admin-ajax.php', fields)
     assert status == 200 and json.loads(duplicate)['data']['id'] == received['data']['id']
+    assert json.loads(duplicate)['data']['redirect'] == redirect, 'Retry must reuse the same one-time receipt'
+    status, _, thanks, headers = request(redirect.removeprefix(BASE))
+    assert status == 200 and 'id="quote-success"' in thanks and received['data']['id'] in thanks
+    assert 'no-store' in headers['Cache-Control'] and 'a1_quote_received' in thanks
+    assert '51992513.js' not in thanks, 'Local environment must never transmit QA contacts'
+    status, _, reused, _ = request(redirect.removeprefix(BASE))
+    assert 'id="quote-receipt-unavailable"' in reused and 'a1_quote_received' not in reused
     status, _, duplicate, _ = request('/wp-admin/admin-ajax.php', fields | {'request_id': uuid.uuid4().hex})
     assert status == 200 and json.loads(duplicate)['data']['id'] == received['data']['id']
+    assert json.loads(duplicate)['data']['redirect'] == redirect, 'Duplicate must never mint another tracking receipt'
     status, _, conflict, _ = request('/wp-admin/admin-ajax.php', fields | {'message': 'Changed payload'})
     assert status == 409
     print('PASS: quote HTTP', path, 'validation, nonce, honeypot, optional phone, overnight, receipt and duplicates', received['data']['id'], flush=True)

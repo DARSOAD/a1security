@@ -112,3 +112,12 @@ $result2 = a1_contact_deliver($persist_data, 'a1_quote_test');
 check($result2['ok'] && count($calls) === 3 && $result['id'] === $result2['id'], 'Durable retry sends only failed recipient after transient eviction');
 check(a1_contact_deliver($persist_data, 'a1_quote_test')['ok'] && count($calls) === 3, 'Durable duplicate must send no further messages');
 echo "PASS: quote fields, service/origin, optional phone, overnight dates, attribution and durable retry.\n";
+check(is_file(__DIR__ . '/page-privacy-policy-2.php') && str_contains(file_get_contents(__DIR__ . '/page-privacy-policy-2.php'), 'the_content()'), 'Privacy slug must render the saved WordPress content');
+check(function_exists('a1_quote_expired'), 'Retention cutoff must be available');
+$now = strtotime('2026-11-25T12:00:00Z');
+foreach (array(89 => false, 90 => true, 91 => true) as $days => $expected) {
+    $sample = array('created' => gmdate('c', $now - $days * 86400), 'status' => 'mail_accepted');
+    check(a1_quote_expired($sample, $now) === $expected, '90 day creation cutoff');
+}
+check(!a1_quote_expired(array('created'=>'invalid'), $now), 'Invalid timestamp must be preserved');
+check(!a1_quote_expired($sample + array('retention_hold'=>true), $now), 'Held record must be preserved');

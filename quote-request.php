@@ -188,3 +188,53 @@ function a1_quote_admin_page() {
     }
     echo '</div>';
 }
+
+function a1_quote_expired($record, $now) {
+    if (!is_array($record) || !empty($record['retention_hold'])) { return false; }
+    $created = $record['created'] ?? '';
+    if (!is_string($created)) { return false; }
+    $date = DateTimeImmutable::createFromFormat(DateTimeInterface::ATOM, $created);
+    return $date && $date->format(DateTimeInterface::ATOM) === $created
+        && $date->getTimestamp() <= $now - 90 * 86400;
+}
+
+// Preview by default. Explicit opt-in follows review of counts and exceptions.
+function a1_quote_retention_run() {
+    global $wpdb;
+    $apply = get_option('a1_quote_retention_mode') === 'apply';
+    $last = 0;
+    $now = time();
+    $summary = array('checked' => 0, 'eligible' => 0, 'deleted' => 0, 'mode' => $apply ? 'apply' : 'preview', 'utc' => gmdate('c', $now));
+    do {
+        $rows = $wpdb->get_results($wpdb->prepare(
+            "SELECT option_id, option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE %s AND option_id > %d ORDER BY option_id LIMIT 100",
+            $wpdb->esc_like('a1_quote_record_') . '%', $last
+        ));
+        if ($wpdb->last_error) { $summary['error'] = 'read'; break; }
+        foreach ($rows as $row) {
+            $last = (int) $row->option_id;
+            $summary['checked']++;
+            $record = maybe_unserialize($row->option_value);
+            if (!a1_quote_expired($record, $now)) { continue; }
+            $summary['eligible']++;
+            if (!$apply) { continue; }
+            // Compare the snapshot so a concurrent change or hold is preserved.
+            $deleted = $wpdb->query($wpdb->prepare(
+                "DELETE FROM {$wpdb->options} WHERE option_id = %d AND BINARY option_value = %s",
+                $last, $row->option_value
+            ));
+            if ($deleted === false) { $summary['error'] = 'delete'; break 2; }
+            if ($deleted === 1) {
+                wp_cache_delete($row->option_name, 'options');
+                $summary['deleted']++;
+            }
+        }
+    } while (count($rows) === 100);
+    update_option('a1_quote_retention_last_run', $summary, false);
+}
+add_action('a1_quote_retention_sweep', 'a1_quote_retention_run');
+add_action('init', static function () {
+    if (!wp_next_scheduled('a1_quote_retention_sweep')) {
+        wp_schedule_event(time() + 60, 'hourly', 'a1_quote_retention_sweep');
+    }
+});
